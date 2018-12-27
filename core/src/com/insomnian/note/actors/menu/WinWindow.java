@@ -34,6 +34,7 @@ public class WinWindow extends Window {
         //        table.debug();
         Table table2 = new Table();
         table2.debug();
+
         setSize(stage.getViewport().getWorldWidth() / 2, stage.getViewport().getWorldWidth() / 3);
         System.out.println(stage.getViewport().getWorldWidth() / 2 +"+"+ stage.getViewport().getWorldWidth() / 3);
         setPosition(stage.getViewport().getWorldWidth() / 4, stage.getViewport().getWorldHeight() / 3);
