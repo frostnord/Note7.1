@@ -1,0 +1,622 @@
+
+sprites.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+PracticeBass_middle
+  rotate: false
+  xy: 1924, 1916
+  size: 119, 120
+  orig: 119, 120
+  offset: 0, 0
+  index: -1
+ReflectBass
+  rotate: false
+  xy: 1666, 356
+  size: 380, 381
+  orig: 380, 381
+  offset: 0, 0
+  index: -1
+ScripGorZnakee
+  rotate: false
+  xy: 1924, 1590
+  size: 81, 203
+  orig: 81, 203
+  offset: 0, 0
+  index: -1
+Star1
+  rotate: false
+  xy: 1666, 54
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: -1
+TreningBass_left
+  rotate: false
+  xy: 1924, 1795
+  size: 118, 119
+  orig: 118, 119
+  offset: 0, 0
+  index: -1
+TreningScrip_left
+  rotate: false
+  xy: 2, 194
+  size: 380, 760
+  orig: 380, 760
+  offset: 0, 0
+  index: -1
+acarolabs
+  rotate: false
+  xy: 1666, 744
+  size: 256, 210
+  orig: 256, 210
+  offset: 0, 0
+  index: -1
+backgroundGame
+  rotate: false
+  xy: 2, 956
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+backgroundMenu
+  rotate: false
+  xy: 384, 234
+  size: 1280, 720
+  orig: 1280, 720
+  offset: 0, 0
+  index: -1
+base
+  rotate: false
+  xy: 1503, 84
+  size: 152, 148
+  orig: 152, 148
+  offset: 0, 0
+  index: -1
+do
+  rotate: false
+  xy: 1924, 1321
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+doGreen
+  rotate: false
+  xy: 1924, 1052
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+doKeyImg
+  rotate: false
+  xy: 1992, 1275
+  size: 33, 132
+  orig: 33, 132
+  offset: 0, 0
+  index: -1
+doRed
+  rotate: false
+  xy: 1924, 783
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+fa
+  rotate: false
+  xy: 1968, 87
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+laKeyImg
+  rotate: false
+  xy: 2007, 1661
+  size: 34, 132
+  orig: 34, 132
+  offset: 0, 0
+  index: -1
+leftBorder
+  rotate: false
+  xy: 2027, 1140
+  size: 16, 267
+  orig: 16, 267
+  offset: 0, 0
+  index: -1
+level1
+  rotate: false
+  xy: 384, 21
+  size: 211, 211
+  orig: 211, 211
+  offset: 0, 0
+  index: -1
+lineImg
+  rotate: false
+  xy: 2007, 1591
+  size: 5, 68
+  orig: 5, 68
+  offset: 0, 0
+  index: -1
+miKeyImg
+  rotate: false
+  xy: 1992, 1141
+  size: 33, 132
+  orig: 33, 132
+  offset: 0, 0
+  index: -1
+noteG
+  rotate: false
+  xy: 2, 2
+  size: 300, 190
+  orig: 300, 190
+  offset: 0, 0
+  index: 1
+noteG
+  rotate: false
+  xy: 597, 42
+  size: 300, 190
+  orig: 300, 190
+  offset: 0, 0
+  index: 2
+noteG
+  rotate: false
+  xy: 899, 42
+  size: 300, 190
+  orig: 300, 190
+  offset: 0, 0
+  index: 3
+noteG
+  rotate: false
+  xy: 1201, 42
+  size: 300, 190
+  orig: 300, 190
+  offset: 0, 0
+  index: 4
+reKeyImg
+  rotate: false
+  xy: 1992, 1007
+  size: 33, 132
+  orig: 33, 132
+  offset: 0, 0
+  index: -1
+rightBorder
+  rotate: false
+  xy: 2027, 871
+  size: 12, 267
+  orig: 12, 267
+  offset: 0, 0
+  index: -1
+siKeyImg
+  rotate: false
+  xy: 1992, 873
+  size: 33, 132
+  orig: 33, 132
+  offset: 0, 0
+  index: -1
+solKeyImg
+  rotate: false
+  xy: 1992, 739
+  size: 33, 132
+  orig: 33, 132
+  offset: 0, 0
+  index: -1
+sound_on
+  rotate: false
+  xy: 1992, 1539
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+triangle
+  rotate: false
+  xy: 1503, 34
+  size: 128, 48
+  orig: 128, 48
+  offset: 0, 0
+  index: -1
+triangleRot
+  rotate: false
+  xy: 1992, 1409
+  size: 48, 128
+  orig: 48, 128
+  offset: 0, 0
+  index: -1
+
+sprites2.png
+size: 2048,2048
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+BassButton
+  rotate: false
+  xy: 516, 921
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+Play
+  rotate: false
+  xy: 1348, 1192
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+PlayButton
+  rotate: false
+  xy: 1348, 810
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+dialod
+  rotate: false
+  xy: 1348, 810
+  size: 380, 380
+  split: 55, 51, 54, 48
+  pad: 56, 33, 53, 47
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+ReflectPlay
+  rotate: false
+  xy: 516, 1303
+  size: 380, 381
+  orig: 380, 381
+  offset: 0, 0
+  index: -1
+ReflectScrip
+  rotate: false
+  xy: 966, 1191
+  size: 380, 381
+  orig: 380, 381
+  offset: 0, 0
+  index: -1
+ScripButton
+  rotate: false
+  xy: 966, 809
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+ScripGorZnak
+  rotate: false
+  xy: 1809, 1450
+  size: 207, 588
+  orig: 207, 588
+  offset: 0, 0
+  index: -1
+ScripVertZnak
+  rotate: false
+  xy: 2, 1686
+  size: 1003, 352
+  orig: 1003, 352
+  offset: 0, 0
+  index: -1
+SetingsButton
+  rotate: false
+  xy: 452, 783
+  size: 145, 136
+  orig: 145, 136
+  offset: 0, 0
+  index: -1
+Star1 - копия
+  rotate: false
+  xy: 1730, 399
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: -1
+Star2
+  rotate: false
+  xy: 1730, 1003
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: -1
+Star3
+  rotate: false
+  xy: 1730, 701
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: -1
+TreningScrip_left1
+  rotate: false
+  xy: 1348, 428
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+Zstar
+  rotate: false
+  xy: 384, 1042
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+faGreen
+  rotate: false
+  xy: 898, 1417
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+faRed
+  rotate: false
+  xy: 898, 1148
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+keybord
+  rotate: false
+  xy: 1007, 1574
+  size: 800, 132
+  orig: 800, 132
+  offset: 0, 0
+  index: -1
+keybord2
+  rotate: false
+  xy: 1798, 1312
+  size: 245, 136
+  orig: 245, 136
+  offset: 0, 0
+  index: -1
+la
+  rotate: false
+  xy: 1730, 1305
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+laGreen
+  rotate: false
+  xy: 898, 879
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+laRed
+  rotate: false
+  xy: 384, 773
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+level
+  rotate: false
+  xy: 384, 97
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: -1
+linesGoriz
+  rotate: false
+  xy: 1007, 1708
+  size: 800, 330
+  orig: 800, 330
+  offset: 0, 0
+  index: -1
+mi
+  rotate: false
+  xy: 878, 610
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+miGreen
+  rotate: false
+  xy: 1248, 540
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+miRed
+  rotate: false
+  xy: 878, 341
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+next
+  rotate: false
+  xy: 2, 17
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+noteG
+  rotate: false
+  xy: 384, 581
+  size: 300, 190
+  orig: 300, 190
+  offset: 0, 0
+  index: 5
+noteG
+  rotate: false
+  xy: 946, 617
+  size: 300, 190
+  orig: 300, 190
+  offset: 0, 0
+  index: 6
+noteG
+  rotate: false
+  xy: 946, 425
+  size: 300, 190
+  orig: 300, 190
+  offset: 0, 0
+  index: 7
+noteV
+  rotate: false
+  xy: 686, 619
+  size: 190, 300
+  orig: 190, 300
+  offset: 0, 0
+  index: 1
+noteV
+  rotate: false
+  xy: 686, 317
+  size: 190, 300
+  orig: 190, 300
+  offset: 0, 0
+  index: 2
+noteV
+  rotate: false
+  xy: 686, 15
+  size: 190, 300
+  orig: 190, 300
+  offset: 0, 0
+  index: 3
+noteV
+  rotate: false
+  xy: 1316, 97
+  size: 190, 300
+  orig: 190, 300
+  offset: 0, 0
+  index: 4
+noteV
+  rotate: false
+  xy: 1508, 126
+  size: 190, 300
+  orig: 190, 300
+  offset: 0, 0
+  index: 5
+noteV
+  rotate: false
+  xy: 1700, 97
+  size: 190, 300
+  orig: 190, 300
+  offset: 0, 0
+  index: 6
+note_blackG
+  rotate: false
+  xy: 946, 233
+  size: 300, 190
+  orig: 300, 190
+  offset: 0, 0
+  index: -1
+note_greyG
+  rotate: false
+  xy: 946, 41
+  size: 300, 190
+  orig: 300, 190
+  offset: 0, 0
+  index: -1
+prew
+  rotate: false
+  xy: 2, 790
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+re
+  rotate: false
+  xy: 1248, 271
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+reGreen
+  rotate: false
+  xy: 878, 72
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+reRed
+  rotate: false
+  xy: 1248, 2
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+restart
+  rotate: false
+  xy: 2, 408
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+si
+  rotate: false
+  xy: 1892, 130
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+siGreen
+  rotate: false
+  xy: 1960, 130
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 2, 1172
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+
+sprites3.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+LearningScrip_mid
+  rotate: false
+  xy: 2, 2
+  size: 186, 186
+  orig: 186, 186
+  offset: 0, 0
+  index: -1
+PracticeScrip_right
+  rotate: false
+  xy: 386, 304
+  size: 186, 186
+  orig: 186, 186
+  offset: 0, 0
+  index: -1
+noteV
+  rotate: false
+  xy: 2, 190
+  size: 190, 300
+  orig: 190, 300
+  offset: 0, 0
+  index: 7
+note_greyV
+  rotate: false
+  xy: 194, 190
+  size: 190, 300
+  orig: 190, 300
+  offset: 0, 0
+  index: -1
+siRed
+  rotate: false
+  xy: 574, 223
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+sol
+  rotate: false
+  xy: 642, 223
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+solGreen
+  rotate: false
+  xy: 710, 223
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1
+solRed
+  rotate: false
+  xy: 778, 223
+  size: 66, 267
+  orig: 66, 267
+  offset: 0, 0
+  index: -1

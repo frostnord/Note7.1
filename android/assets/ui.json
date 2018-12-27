@@ -1,0 +1,169 @@
+{
+  "com.badlogic.gdx.graphics.g2d.BitmapFont": {
+    "default-font": {
+      "file": "1.fnt"
+    }
+  },
+
+  "com.badlogic.gdx.graphics.Color": {
+    "green": { "a": 1, "b": 0, "g": 1, "r": 0 },
+    "white": { "a": 1, "b": 1, "g": 1, "r": 1 },
+    "red": { "a": 1, "b": 0, "g": 0, "r": 1 },
+    "black": { "a": 1, "b": 0, "g": 0, "r": 0 },
+    "purple": { "a": 1, "r": 0.6, "g": 0.3, "b": 0.8  },
+    "dark_purple": { "a": 1, "r": 0.4, "g": 0, "b": 0.6  },
+    "light_purple": { "a": 1, "r": 0.8, "g": 0.5, "b": 1  },
+    "gray": { "a": 1, "r": 0.6, "g": 0.6, "b": 0.6  }
+  },
+
+//  "com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable": {
+//    "button_down": {
+//      "name": "button",
+//      "color": "purple"
+//    },
+//    "button_checked": {
+//      "name": "button",
+//      "color": "dark_purple"
+//    },
+//    "rate_button_down": {
+//      "name": "rate_button",
+//      "color": "purple"
+//    },
+//    "hs_button_down": {
+//      "name": "hs_button",
+//      "color": "purple"
+//    },
+//    "options_button_down": {
+//      "name": "options_button",
+//      "color": "purple"
+//    },
+//    "menu_button_down": {
+//      "name": "menu_button",
+//      "color": "light_purple"
+//    },
+//    "play_button_down": {
+//      "name": "play_button",
+//      "color": "light_purple"
+//    },
+//    "repeat_button_down": {
+//      "name": "repeat_button",
+//      "color": "light_purple"
+//    },
+//    "back_button_down": {
+//      "name": "left_button",
+//      "color": "purple"
+//    },
+//    "ads_button_down": {
+//      "name": "ads_button",
+//      "color": "purple"
+//    }
+//  },
+//
+//
+//  "com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle": {
+//    "default": {
+//      "up": "button",
+//      "down": "button"
+//    }
+//    "toggle": {
+//      "up": "button",
+//      "down": "button_down",
+//      "checked": "button_checked"
+//    },
+//    "rate_button": {
+//      "up": "rate_button",
+//      "down": "rate_button_down"
+//    },
+//    "hs_button": {
+//      "up": "hs_button",
+//      "down": "hs_button_down"
+//    },
+//    "options_button": {
+//      "up": "options_button",
+//      "down": "options_button_down"
+//    },
+//    "play_button": {
+//      "up": "play_button",
+//      "down": "play_button_down"
+//    },
+//    "repeat_button": {
+//      "up": "repeat_button",
+//      "down": "repeat_button_down"
+//    },
+//    "menu_button": {
+//      "up": "menu_button",
+//      "down": "menu_button_down"
+//    },
+//    "back_button": {
+//      "up": "left_button",
+//      "down": "back_button_down"
+//    },
+//    "ads_button": {
+//      "up": "ads_button",
+//      "down": "ads_button_down"
+//    }
+//  },
+//
+//  "com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle": {
+//    "default": {
+//      "background": "box"
+//    }
+//  },
+////
+//  "com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle": {
+//    "default": {
+//      "up": "button",
+//      "down": "button",
+//      "font": "default-font",
+//      "fontColor": "white",
+//      "downFontColor": "light_purple"
+//    },
+//    "toggle": {
+//      "up": "button",
+//      "down": "button",
+//      "checked": "button",
+//      "font": "default-font",
+//      "fontColor": "white",
+//      "checkedFontColor": "light_purple"
+//    }
+//  },
+//
+//  "com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle": {
+//    "default": {
+//      "titleFont": "default-font",
+//      "background": "box",
+//      "titleFontColor": "white"
+//    },
+//    "dialog": {
+//      "titleFont": "default-font",
+//      "background": "box",
+//      "titleFontColor": "white",
+//    }
+//  },
+//
+//  "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
+//    "default": {
+//      "font": "default-font",
+//      "fontColor": "white"
+//    }
+//  },
+//
+//  "com.badlogic.gdx.scenes.scene2d.ui.ProgressBar$ProgressBarStyle": {
+//    "default-horizontal": {
+//      "background": "bar_shadow",
+//      //"knob": "bar",
+//      "knobBefore": "bar"
+//    },
+//    "default-vertical": {
+//      "background": "bar",
+//      "knob": "bar_shadow"
+//    }
+//  },
+
+  "com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle": {
+//    "default": { "checkboxOn": "music_on_checkbox", "checkboxOff": "music_off_checkbox", "font": "default-font", "fontColor": "white" }
+    "music": { "checkboxOn": "music_on_checkbox", "checkboxOff": "music_off_checkbox", "font": "default-font", "fontColor": "white" },
+    "sound": { "checkboxOn": "sound_on_checkbox", "checkboxOff": "sound_off_checkbox", "font": "default-font", "fontColor": "white" },
+    "language": { "checkboxOn": "sound_on_checkbox", "checkboxOff": "sound_off_checkbox", "font": "default-font", "fontColor": "white" }
+  }
+}

@@ -1,0 +1,18 @@
+{
+	com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle:
+	{
+	  ScripButton:{down:ScripButton, up:ScripButton},
+	  BassButton:{down:BassButton, up:BassButton},
+	  PlayButton:{down:PlayButton, up:PlayButton},
+	  SetingsButton:{down:SetingsButton, up:SetingsButton},
+	  TreningScrip_left:{down:TreningScrip_left, up:TreningScrip_left},
+	  base: { down: base, up:base},
+	  LearningScrip_mid:{down:LearningScrip_mid, up:LearningScrip_mid},
+	  PracticeScrip_right:{down:PracticeScrip_right, up:PracticeScrip_right},
+	  keybord:{down:keybord, up:keybord},
+	  level: { down: level, up:level},
+//	  lines:{down:lines, up:lines},
+	  keybord2:{down:keybord2, up:keybord2},
+	},
+
+}

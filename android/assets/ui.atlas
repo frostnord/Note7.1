@@ -1,0 +1,34 @@
+
+ui.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+music_off_checkbox
+  rotate: false
+  xy: 2, 2
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+music_on_checkbox
+  rotate: false
+  xy: 384, 2
+  size: 380, 380
+  orig: 380, 380
+  offset: 0, 0
+  index: -1
+sound_off_checkbox
+  rotate: false
+  xy: 766, 196
+  size: 186, 186
+  orig: 186, 186
+  offset: 0, 0
+  index: -1
+sound_on_checkbox
+  rotate: false
+  xy: 766, 8
+  size: 186, 186
+  orig: 186, 186
+  offset: 0, 0
+  index: -1
