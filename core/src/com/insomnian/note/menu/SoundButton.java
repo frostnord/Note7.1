@@ -1,7 +1,4 @@
-package com.note.actors.menu;
-
-import com.badlogic.gdx.math.Rectangle;
-import com.note.utils.AudioUtils;
+package com.insomnian.note.menu;
 
 
 //public class SoundButton extends GameButton {

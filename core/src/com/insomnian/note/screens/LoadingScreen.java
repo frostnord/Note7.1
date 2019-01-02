@@ -24,7 +24,7 @@ public class LoadingScreen extends AbstractGameScreen {
     private Image imgBackground;
     float timer = 1000.0f;
 
-    public LoadingScreen(Note directedGame) {
+    public LoadingScreen(DirectedGame directedGame) {
 
         super(directedGame);
     }
@@ -50,7 +50,7 @@ public class LoadingScreen extends AbstractGameScreen {
     }
     private Table buildBackgroundLayer() {
         Table table = new Table();
-        this.imgBackground = new Image(this.game.gameSkin,"backgroundMenu");
+        this.imgBackground = new Image(this.directedGame.gameSkin,"backgroundMenu");
         table.add(this.imgBackground).fill().expand();
         return table;
     }
@@ -75,9 +75,9 @@ public class LoadingScreen extends AbstractGameScreen {
 
 
 
-        if (this.game.manager.update()&& this.timer < 0.0f) {
-//            Assets.instance.init(this.game.manager);
-            this.game.setScreen(new FirstMenuScreen(game));
+        if (this.directedGame.manager.update()&& this.timer < 0.0f) {
+//            Assets.instance.init(this.directedGame.manager);
+//            this.directedGame.setScreen(new FirstMenuScreen(directedGame));////////////////////////////
         }
         this.timer-=50f;
     }
@@ -94,12 +94,12 @@ public class LoadingScreen extends AbstractGameScreen {
 
 
 
-//        this.game.manager.load("sprites.atlas", TextureAtlas.class);
-//        this.game.manager.finishLoading();
+//        this.directedGame.manager.load("sprites.atlas", TextureAtlas.class);
+//        this.directedGame.manager.finishLoading();
 //
-//        this.game.gameSkin = new Skin(Gdx.files.internal("sprites.json"), new TextureAtlas("sprites.atlas"));
+//        this.directedGame.gameSkin = new Skin(Gdx.files.internal("sprites.json"), new TextureAtlas("sprites.atlas"));
 //
-//        Assets.instance.init(this.game.manager);
+//        Assets.instance.init(this.directedGame.manager);
         this.rebuildStage();
     }
 }

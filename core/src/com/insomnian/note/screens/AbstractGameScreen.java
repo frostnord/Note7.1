@@ -9,15 +9,15 @@ import com.insomnian.note.game.Assets;
  */
 public abstract class AbstractGameScreen implements Screen {
 
-    protected Note game;
+    protected DirectedGame directedGame;
 
-    public AbstractGameScreen(Note directedGame) {
+    public AbstractGameScreen(DirectedGame directedGame) {
 
-        this.game = directedGame;
+        this.directedGame = directedGame;
     }
     @Override
     public void dispose() {
-        Assets.instance.dispose();
+//        Assets.instance.dispose();
     }
 
 //    public abstract InputProcessor getInputProcessor();

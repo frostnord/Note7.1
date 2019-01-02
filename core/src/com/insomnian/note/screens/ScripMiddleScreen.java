@@ -57,15 +57,15 @@ public class ScripMiddleScreen extends AbstractGameScreen {
 
     public static int index;
 
-    public ScripMiddleScreen(Note game) {
-        super(game);
+    public ScripMiddleScreen(DirectedGame directedGame) {
+        super(directedGame);
     }
 
     private void buildStage() {
-        this.imgBackground = new Image(this.game.gameSkin, "backgroundGame");
+        this.imgBackground = new Image(this.directedGame.gameSkin, "backgroundGame");
         imgBackground.setSize(stage.getViewport().getWorldWidth(), stage.getViewport().getWorldHeight());
         stage.addActor(this.imgBackground);
-        znakImg = new Image(this.game.gameSkin, "ScripGorZnak");
+        znakImg = new Image(this.directedGame.gameSkin, "ScripGorZnak");
         znakImg.setPosition(0, this.stage.getViewport().getWorldHeight() / 2.7f);
         stage.addActor(znakImg);
 
@@ -79,15 +79,15 @@ public class ScripMiddleScreen extends AbstractGameScreen {
         rightBorder.setPosition(this.stage.getViewport().getWorldWidth() / 23f * 15f, 0);
         stage.addActor(rightBorder);
 
-        stage.addActor(new KeyGoriz(game, 1, stage, 8));
-        stage.addActor(new KeyGoriz(game, 2, stage, 9));
-        stage.addActor(new KeyGoriz(game, 3, stage, 10));
-        stage.addActor(new KeyGoriz(game, 4, stage, 11));
-        stage.addActor(new KeyGoriz(game, 5, stage, 12));
-        stage.addActor(new KeyGoriz(game, 6, stage, 13));
-        stage.addActor(new KeyGoriz(game, 7, stage, 14));
+        stage.addActor(new KeyGoriz(directedGame, 1, stage, 8));
+        stage.addActor(new KeyGoriz(directedGame, 2, stage, 9));
+        stage.addActor(new KeyGoriz(directedGame, 3, stage, 10));
+        stage.addActor(new KeyGoriz(directedGame, 4, stage, 11));
+        stage.addActor(new KeyGoriz(directedGame, 5, stage, 12));
+        stage.addActor(new KeyGoriz(directedGame, 6, stage, 13));
+        stage.addActor(new KeyGoriz(directedGame, 7, stage, 14));
 
-        stage.addActor(new Lines(game,stage));
+        stage.addActor(new Lines(directedGame,stage));
 
     }
     //    private void buildMenuLayers() {
@@ -99,7 +99,7 @@ public class ScripMiddleScreen extends AbstractGameScreen {
 //    private Table buildZnakLayer() {
 //        Table table = new Table();
 //        table.left().top().padLeft(50).padTop(90);
-//        znakImg = new Image(this.game.gameSkin, "ScripGorZnak");
+//        znakImg = new Image(this.directedGame.gameSkin, "ScripGorZnak");
 //        table.add(znakImg);
 //        return table;
 //        float lineW = widthW / 100 ;
@@ -124,7 +124,7 @@ public class ScripMiddleScreen extends AbstractGameScreen {
 //    private Table buildKeyboardLayer() {
 //        final Table table = new Table();
 //        table.center().bottom();
-//        this.keybordImg = new Button(this.game.gameSkin, "keybord2");
+//        this.keybordImg = new Button(this.directedGame.gameSkin, "keybord2");
 //        table.add(this.keybordImg);
 //        keybordHeight = keybordImg.getTop();
 //        this.keybordImg.addListener(new ClickListener() {
@@ -139,7 +139,7 @@ public class ScripMiddleScreen extends AbstractGameScreen {
 //
 //            @Override
 //            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-////                game.setScreen(new LevelScreen(game));
+////                directedGame.setScreen(new LevelScreen(directedGame));
 ////                dispose();
 //                keyStatus = KeyStatus.UP;
 //                rightButton = false;
@@ -152,7 +152,7 @@ public class ScripMiddleScreen extends AbstractGameScreen {
 //    }
 //    private Table buildBackgroundLayer() {
 //        Table table = new Table();
-//        this.imgBackground = new Image(this.game.gameSkin, "backgroundGame");
+//        this.imgBackground = new Image(this.directedGame.gameSkin, "backgroundGame");
 //        table.add(this.imgBackground);
 //        return table;
 //    public static void setScoreRight() {
@@ -218,7 +218,7 @@ public class ScripMiddleScreen extends AbstractGameScreen {
         stage.dispose();
     }
     private void Back() {
-        this.game.setScreen(new ScripMenuScreen(this.game));
+        this.directedGame.setScreen(new ScripMenuScreen(this.directedGame));
     }
 //    }
     //    private void assembleStage() {
@@ -315,7 +315,7 @@ public class ScripMiddleScreen extends AbstractGameScreen {
     public void controller() {
         time += 1;
         if (time >= 220f) {
-            NoteGoriz noteGoriz = new NoteGoriz(game,stage,stage.getViewport().getWorldHeight(),
+            NoteGoriz noteGoriz = new NoteGoriz(directedGame,stage,stage.getViewport().getWorldHeight(),
                     stage.getViewport().getWorldHeight()-this.stage.getViewport().getWorldHeight() / 4f);
 
             actors.add(noteGoriz);
@@ -341,7 +341,7 @@ public class ScripMiddleScreen extends AbstractGameScreen {
     @Override
     public void show() {
         Gdx.input.setCatchBackKey(true);
-        this.stage = new Stage(new ExtendViewport(Constants.VIEWPORT_GUI_WIDTH, Constants.VIEWPORT_GUI_HEIGHT,game.camera)) {
+        this.stage = new Stage(new ExtendViewport(Constants.VIEWPORT_GUI_WIDTH, Constants.VIEWPORT_GUI_HEIGHT,directedGame.camera)) {
             @Override
             public boolean keyUp(int keycode) {
                 if ((keycode == Input.Keys.BACK) || (keycode == Input.Keys.ESCAPE)) {
@@ -358,7 +358,7 @@ public class ScripMiddleScreen extends AbstractGameScreen {
 
         this.buildStage();
         actors = new Array();
-//        NoteGoriz noteGoriz = new NoteGoriz(game,stage,stage.getViewport().getWorldHeight(),
+//        NoteGoriz noteGoriz = new NoteGoriz(directedGame,stage,stage.getViewport().getWorldHeight(),
 //                stage.getViewport().getWorldHeight()-this.stage.getViewport().getWorldHeight() / 4f);
 //        actors.add(noteGoriz);
 //        stage.addActor(noteGoriz);

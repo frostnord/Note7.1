@@ -30,51 +30,51 @@ public class ScripLeftScreen extends AbstractGameScreen {
 
 
 
-    public ScripLeftScreen(Note game) {
-        super(game);
+    public ScripLeftScreen(DirectedGame directedGame) {
+        super(directedGame);
     }
 
     private void buildStage() {
-        this.imgBackground = new Image(this.game.gameSkin, "backgroundGame");
+        this.imgBackground = new Image(this.directedGame.gameSkin, "backgroundGame");
         imgBackground.setSize(stage.getViewport().getWorldWidth(), stage.getViewport().getWorldHeight());
         stage.addActor(this.imgBackground);
-        znakImg = new Image(this.game.gameSkin, "ScripVertZnak");
+        znakImg = new Image(this.directedGame.gameSkin, "ScripVertZnak");
         znakImg.setPosition(this.stage.getViewport().getWorldWidth() / 4,
                 this.stage.getViewport().getWorldHeight() - znakImg.getHeight());
         stage.addActor(znakImg);
 
-        stage.addActor(new KeyVert(game, 3, stage, 0));
-        stage.addActor(new KeyVert(game, 4, stage, 1));
-        stage.addActor(new KeyVert(game, 5, stage, 2));
-        stage.addActor(new KeyVert(game, 6, stage, 3));
-        stage.addActor(new KeyVert(game, 7, stage, 4));
-        stage.addActor(new KeyVert(game, 1, stage, 5));
-        stage.addActor(new KeyVert(game, 2, stage, 6));
-        stage.addActor(new KeyVert(game, 3, stage, 7));
-        stage.addActor(new KeyVert(game, 4, stage, 8));
-        stage.addActor(new KeyVert(game, 5, stage, 9));
-        stage.addActor(new KeyVert(game, 6, stage, 10));
-        stage.addActor(new KeyVert(game,7,stage,11));
-        stage.addActor(new KeyVert(game,1,stage,12));
-        stage.addActor(new KeyVert(game,2,stage,13));
-        stage.addActor(new KeyVert(game,3,stage,14));
-        stage.addActor(new KeyVert(game,4,stage,15));
-        stage.addActor(new KeyVert(game,5,stage,16));
-        stage.addActor(new KeyVert(game,6,stage,17));
-        stage.addActor(new KeyVert(game,7,stage,18));
-        stage.addActor(new KeyVert(game,1,stage,19));
-        stage.addActor(new KeyVert(game,2,stage,20));
-        stage.addActor(new KeyVert(game,3,stage,21));
-        stage.addActor(new KeyVert(game,4,stage,22));
+        stage.addActor(new KeyVert(directedGame, 3, stage, 0));
+        stage.addActor(new KeyVert(directedGame, 4, stage, 1));
+        stage.addActor(new KeyVert(directedGame, 5, stage, 2));
+        stage.addActor(new KeyVert(directedGame, 6, stage, 3));
+        stage.addActor(new KeyVert(directedGame, 7, stage, 4));
+        stage.addActor(new KeyVert(directedGame, 1, stage, 5));
+        stage.addActor(new KeyVert(directedGame, 2, stage, 6));
+        stage.addActor(new KeyVert(directedGame, 3, stage, 7));
+        stage.addActor(new KeyVert(directedGame, 4, stage, 8));
+        stage.addActor(new KeyVert(directedGame, 5, stage, 9));
+        stage.addActor(new KeyVert(directedGame, 6, stage, 10));
+        stage.addActor(new KeyVert(directedGame,7,stage,11));
+        stage.addActor(new KeyVert(directedGame,1,stage,12));
+        stage.addActor(new KeyVert(directedGame,2,stage,13));
+        stage.addActor(new KeyVert(directedGame,3,stage,14));
+        stage.addActor(new KeyVert(directedGame,4,stage,15));
+        stage.addActor(new KeyVert(directedGame,5,stage,16));
+        stage.addActor(new KeyVert(directedGame,6,stage,17));
+        stage.addActor(new KeyVert(directedGame,7,stage,18));
+        stage.addActor(new KeyVert(directedGame,1,stage,19));
+        stage.addActor(new KeyVert(directedGame,2,stage,20));
+        stage.addActor(new KeyVert(directedGame,3,stage,21));
+        stage.addActor(new KeyVert(directedGame,4,stage,22));
 
 
-//            stage.addActor( a = new DoKey(game,stage,2));
-//            a = new DoKey(game,stage,3);
+//            stage.addActor( a = new DoKey(directedGame,stage,2));
+//            a = new DoKey(directedGame,stage,3);
 //            a.setTouchable(Touchable.enabled);
     }
 
     private void Back() {
-        this.game.setScreen(new ScripMenuScreen(this.game));
+        this.directedGame.setScreen(new ScripMenuScreen(this.directedGame));
     }
 
     @Override
@@ -90,7 +90,7 @@ public class ScripLeftScreen extends AbstractGameScreen {
 
     public void controller() {
         if (firstActor == null) {
-            firstActor = new NoteVert(game,stage);
+            firstActor = new NoteVert(directedGame,stage);
             currIndex = firstActor.getIndex();
             WorldController.KEYNUMBER = currIndex;
             stage.addActor(firstActor);
@@ -98,7 +98,7 @@ public class ScripLeftScreen extends AbstractGameScreen {
         System.out.println(WorldController.KEYNUMBER);
         if (firstActor.getPosition().y <= stage.getViewport().getWorldHeight() / 2 ){
             if (secondActor == null) {
-                secondActor = new NoteVert(game, stage);
+                secondActor = new NoteVert(directedGame, stage);
                 nextIndex = secondActor.getIndex();
                 stage.addActor(secondActor);
                 currIndex = nextIndex;
@@ -128,7 +128,8 @@ public class ScripLeftScreen extends AbstractGameScreen {
     @Override
     public void show() {
         Gdx.input.setCatchBackKey(true);
-        this.stage = new Stage(new ExtendViewport(Constants.VIEWPORT_GUI_WIDTH, Constants.VIEWPORT_GUI_HEIGHT,game.camera)) {
+        this.stage = new Stage(new ExtendViewport(Constants.VIEWPORT_GUI_WIDTH,
+                Constants.VIEWPORT_GUI_HEIGHT,directedGame.camera)) {
             @Override
             public boolean keyUp(int keycode) {
                 if ((keycode == Input.Keys.BACK) || (keycode == Input.Keys.ESCAPE)) {
@@ -162,8 +163,8 @@ public class ScripLeftScreen extends AbstractGameScreen {
 
     @Override
     public void resume() {
-//            this.game.camera.viewportWidth = Gdx.graphics.getWidth();
-//            this.game.camera.viewportHeight = Gdx.graphics.getHeight();
+//            this.directedGame.camera.viewportWidth = Gdx.graphics.getWidth();
+//            this.directedGame.camera.viewportHeight = Gdx.graphics.getHeight();
     }
 
     @Override

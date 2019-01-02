@@ -1,4 +1,4 @@
-package com.insomnian.note.actors.menu;
+package com.insomnian.note.menu;
 
 
 import com.badlogic.gdx.math.Rectangle;
@@ -8,7 +8,7 @@ public class TreningBassButton extends GameButton {
 
 
     public interface TreningBassButtonListener {
-        public void onStart();
+        void onStart();
     }
 
     private TreningBassButtonListener listener;

@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.insomnian.note.Note;
 import com.insomnian.note.game.Assets;
+import com.insomnian.note.screens.DirectedGame;
 import com.insomnian.note.screens.ScripMiddleScreen;
 import com.insomnian.note.screens.ScripLeftScreen;
 
@@ -27,7 +28,7 @@ public class KeyGoriz extends AbstractActor {
     private float width;
     private float height;
     private float position;
-    private Note game;
+    private DirectedGame directedGame;
     private Field NUMBER;
     private Screen screen;
     public int state ;
@@ -55,10 +56,10 @@ public class KeyGoriz extends AbstractActor {
 
     }
 
-    public KeyGoriz(final Note game, final int key, Stage stage, final int number) {
+    public KeyGoriz(final DirectedGame directedGame, final int key, Stage stage, final int number) {
 
         this.number = number;
-        this.game = game;
+        this.directedGame = directedGame;
         this.stage = stage;
         this.position = (this.stage.getViewport().getWorldWidth() / 23 )* number ;
         this.width = this.stage.getViewport().getWorldWidth() / 23 + 1 ;
@@ -138,10 +139,10 @@ public class KeyGoriz extends AbstractActor {
                     }
                 }
 
-                if (game.getScreen().getClass() == ScripLeftScreen.class) {
+                if (directedGame.getScreen().getClass() == ScripLeftScreen.class) {
                     ScripLeftScreen.firstActor.setNoteCliked(true);
                 }
-                if (game.getScreen().getClass() == ScripMiddleScreen.class) {
+                if (directedGame.getScreen().getClass() == ScripMiddleScreen.class) {
                     if ((ScripMiddleScreen.getNoteActors().get(0).getNoteKey() == key)) {
                         ScripMiddleScreen.scoreRight++;
                     } else {
@@ -157,7 +158,7 @@ public class KeyGoriz extends AbstractActor {
 //                System.out.println("key "+(ScripMiddleScreen.getNoteActors().get(0).getNoteKey()));
             }
 //                try {
-//                    NUMBER = game.getScreen().getClass().getField("currIndex");
+//                    NUMBER = directedGame.getScreen().getClass().getField("currIndex");
 //                    String n = NUMBER.getName();
 //                    System.out.println(n);
 //

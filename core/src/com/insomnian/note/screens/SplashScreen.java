@@ -22,7 +22,7 @@ public class SplashScreen implements Screen {
 
 //    private static final String IMAGES_ACAROLABS = "acarolabs.png";
     private static final String SOUNDS_SPLASH = "01-arkasia-destiny.mp3";
-    private final Note game;
+    private final DirectedGame game;
 //    private boolean isSplashFinish;
     private Music music;
     private Image splashImage;
@@ -34,8 +34,8 @@ public class SplashScreen implements Screen {
     Texture imgLogo;
     float timer;
 
-    public SplashScreen(Note note) {
-        this.game = note;
+    public SplashScreen(DirectedGame directedGame) {
+        this.game = directedGame;
 //        Texture texture = new Texture(Gdx.files.internal(IMAGES_ACAROLABS));
 //        texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 //        this.splashImage = new Image(texture);
@@ -53,7 +53,7 @@ public class SplashScreen implements Screen {
         this.timer = 3.0F;
         this.alpha = 0.0F;
         this.batch = new SpriteBatch();
-//        this.imgLogo = new Texture("LoadScreen-" + this.game.densite + ".png");
+//        this.imgLogo = new Texture("LoadScreen-" + this.directedGame.densite + ".png");
         this.imgLogo = new Texture("LoadScreen.png");
 
         this.music = Gdx.audio.newMusic(Gdx.files.internal(SOUNDS_SPLASH));
@@ -64,10 +64,10 @@ public class SplashScreen implements Screen {
         Assets.instance.load(game.manager);
         this.game.manager.load("sprites.atlas", TextureAtlas.class);
         this.game.manager.load("ui.atlas",TextureAtlas.class);
-        this.game.manager.finishLoading();
 //
         this.game.uiSkin = new Skin(Gdx.files.internal("ui.json"),new TextureAtlas(("ui.atlas")));
         this.game.gameSkin = new Skin(Gdx.files.internal("sprites.json"), new TextureAtlas("sprites.atlas"));
+        this.game.manager.finishLoading();
 
 
         Assets.instance.init(this.game.manager);
@@ -89,7 +89,7 @@ public class SplashScreen implements Screen {
 //                public void run() {
 
             SplashScreen.this.game.setScreen(new FirstMenuScreen(this.game));
-//            SplashScreen.this.game.setScreen(new ScripPackScreen(this.game));
+//            SplashScreen.this.directedGame.setScreen(new ScripPackScreen(this.directedGame));
 //                }
 //            })));
         }
@@ -110,8 +110,8 @@ public class SplashScreen implements Screen {
 //                        break;
 //                    }
 //                    this.alpha = 0.0F;
-////                    this.game.typeScreen = "intro";
-//                    this.game.setScreen(new FirstMenuScreen(this.game));
+////                    this.directedGame.typeScreen = "intro";
+//                    this.directedGame.setScreen(new FirstMenuScreen(this.directedGame));
 //                    break;
 //                }
 //            }

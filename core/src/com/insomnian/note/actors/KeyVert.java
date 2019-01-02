@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.insomnian.note.Note;
 import com.insomnian.note.game.Assets;
 import com.insomnian.note.game.WorldController;
+import com.insomnian.note.screens.DirectedGame;
 import com.insomnian.note.screens.ScripMiddleScreen;
 import com.insomnian.note.screens.ScripLeftScreen;
 import com.insomnian.note.utils.SoundManager;
@@ -28,7 +29,7 @@ public class KeyVert extends Actor {
     private float width;
     private float height;
     private float position;
-    private Note game;
+    private DirectedGame directedGame;
     private Field NUMBER;
     private Screen screen;
     public int state;
@@ -54,9 +55,9 @@ public class KeyVert extends Actor {
         }
     }
 
-    public KeyVert(final Note game, final int key, final Stage stage, final int number) {
+    public KeyVert(final DirectedGame directedGame, final int key, final Stage stage, final int number) {
         this.number = number;
-        this.game = game;
+        this.directedGame = directedGame;
         this.stage = stage;
         this.position = (this.stage.getViewport().getWorldWidth() / 23) * number;
         this.width = this.stage.getViewport().getWorldWidth() / 23 + 1;
@@ -145,7 +146,7 @@ public class KeyVert extends Actor {
                         keyTextureRegion = Assets.instance.noteImg.siRedKeyImgActor;
                     }
                 }
-                if (game.getScreen().getClass() == ScripLeftScreen.class) {
+                if (directedGame.getScreen().getClass() == ScripLeftScreen.class) {
                     ScripLeftScreen.firstActor.setNoteCliked(true);
                 }
                 Assets.play(number);
@@ -154,8 +155,9 @@ public class KeyVert extends Actor {
 
 
 
+
 //                try {
-//                    NUMBER = game.getScreen().getClass().getField("currIndex");
+//                    NUMBER = directedGame.getScreen().getClass().getField("currIndex");
 //                    String n = NUMBER.getName();
 //                    System.out.println(n);g
 //

@@ -47,7 +47,7 @@ public class ScripPackScreen extends AbstractGameScreen {
     final Color black;
 
 
-    public ScripPackScreen(final Note directedGame) {
+    public ScripPackScreen(DirectedGame directedGame) {
         super(directedGame);
         this.black = new Color(0.0f, 0.0f, 0.0f, 1.0f);
 //        this.Height = Gdx.graphics.getHeight();
@@ -65,10 +65,10 @@ public class ScripPackScreen extends AbstractGameScreen {
         this.stage.addActor(table2);
 //        this.stage.addActor(table);
 
-//        this.imgBackground = new Image(this.game.gameSkin,"backgroundMenu");
+//        this.imgBackground = new Image(this.directedGame.gameSkin,"backgroundMenu");
 //        this.imgBackground.setBounds(0.0F, 0.0F, this.Width, this.Height);
 //
-//        this.treningMenuImg = new Image(this.game.gameSkin, "TreningScrip_left");
+//        this.treningMenuImg = new Image(this.directedGame.gameSkin, "TreningScrip_left");
 //        float f1 = this.Width / 5f;
 //        float f2 = treningMenuImg.getHeight() * f1 / treningMenuImg.getWidth();
 //        this.treningMenuImg.setPosition(this.Width - this.Width / 30 - f1, this.Width / 30);
@@ -94,7 +94,7 @@ public class ScripPackScreen extends AbstractGameScreen {
     private Table buildLevelSelectorLayer() {
         ScrollPane scrollPane;
         Table table = new Table();
-        table.setBackground(game.gameSkin.getDrawable("backgroundMenu"));
+        table.setBackground(directedGame.gameSkin.getDrawable("backgroundMenu"));
         table.setSize(stage.getViewport().getWorldWidth(), stage.getViewport().getWorldHeight());
         table.setPosition(0.0f, 0.0f);
         Table table2 = new Table();
@@ -111,18 +111,18 @@ public class ScripPackScreen extends AbstractGameScreen {
 //                table.add(this.scroller);//back button
                 table.add(table2);//back button
                 table.row();
-                Button button = new Button(this.game.gameSkin, "base");
+                Button button = new Button(this.directedGame.gameSkin, "base");
                 button.setSize(stage.getViewport().getWorldWidth() / 10, stage.getViewport().getWorldWidth() / 10);
                 button.setPosition(stage.getViewport().getWorldWidth() - button.getWidth(), -button.getWidth());
                 button.addAction(Actions.sequence((Action) Actions.delay(0.5f), (Action) Actions.moveTo(stage.getViewport().getWorldWidth() - button.getWidth(), 0.0f, 1.0f, Interpolation.circleOut)));
                 ChangeListener changeListener = new ChangeListener() {
                     @Override
-                    public void changed(ChangeListener.ChangeEvent changeEvent, Actor actor) {
-                        ScripPackScreen.this.game.setScreen(new ScripMenuScreen(game));
+                    public void changed(ChangeEvent changeEvent, Actor actor) {
+                        ScripPackScreen.this.directedGame.setScreen(new ScripMenuScreen(directedGame));
                     }
                 };
                 button.addListener(changeListener);
-                table.addActor(button);
+//                table.addActor(button);
                 return table;
             }
 
@@ -131,7 +131,7 @@ public class ScripPackScreen extends AbstractGameScreen {
 //            table3.debug();
 //            GamePreferences.instance.saveLastLevelStar(mode, 2, 3);
             int kolvoStar = GamePreferences.instance.getNumberOfStar(mode, packNumber);
-            Button button = new Button(this.game.gameSkin, "level");
+            Button button = new Button(this.directedGame.gameSkin, "level");
             table2.add(table3).size(stage.getViewport().getWorldWidth() / 6.0f);
             table3.addActor(button);
 //            button.setSize(0.0f, 0.0f);
@@ -161,7 +161,7 @@ public class ScripPackScreen extends AbstractGameScreen {
 //                    System.out.println(n7+" "+numStar+ "rrrr"+n3);
                     ChangeListener changeListener = new ChangeListener() {
                         @Override
-                        public void changed(ChangeListener.ChangeEvent changeEvent, Actor actor) {
+                        public void changed(ChangeEvent changeEvent, Actor actor) {
 //                            stage.addAction(Actions.sequence(fadeOut(1),delay(1)));
 //                            stage.addAction(Actions.fadeOut(1));
                             ScripPackScreen.this.onLevelSelectClicked(packNumber);
@@ -179,16 +179,16 @@ public class ScripPackScreen extends AbstractGameScreen {
                 ++n7;
                 switch (n7) {
                     case 1:
-                        image = new Image(this.game.gameSkin, "Star1");
+                        image = new Image(this.directedGame.gameSkin, "Star1");
                         break;
                     case 2:
-                        image = new Image(this.game.gameSkin, "Star2");
+                        image = new Image(this.directedGame.gameSkin, "Star2");
                         break;
                     default:
-                        image = new Image(this.game.gameSkin, "Star3");
+                        image = new Image(this.directedGame.gameSkin, "Star3");
                         break;
                 }
-//                Image image = new Image(this.game.gameSkin, "Star1");
+//                Image image = new Image(this.directedGame.gameSkin, "Star1");
                 image.setSize(stage.getViewport().getWorldWidth() / 6.0f, stage.getViewport().getWorldWidth() / 6.0f);
                 button.addActor(image);
 //                image.setColor(this.black);
@@ -200,16 +200,16 @@ public class ScripPackScreen extends AbstractGameScreen {
     }
     private void onLevelSelectClicked(int n) {
         System.out.println(n);
-//        this.game.levelToLoad = n;
-        ScripPackScreen.this.game.setScreen(new ScripPracticeScreen(game, n));
-//        AudioManager.instance.play(com.gamelounge.chrooma.game.Assets.instance.sounds.buttonSound, 1.0f);
+//        this.directedGame.levelToLoad = n;
+        ScripPackScreen.this.directedGame.setScreen(new ScripPracticeScreen(directedGame, n));
+//        AudioManager.instance.play(com.gamelounge.chrooma.directedGame.Assets.instance.sounds.buttonSound, 1.0f);
     }
 //     }
 //    private Table buildLinesLayer() {
 //        Table table = new Table();
 //        table.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 //        table.bottom().left().padBottom(keybordHeight);
-//        this.lineImg = new Image(this.game.gameSkin, "lines");
+//        this.lineImg = new Image(this.directedGame.gameSkin, "lines");
 //        table.add(this.lineImg);
 //
 //        return table;
@@ -225,21 +225,21 @@ public class ScripPackScreen extends AbstractGameScreen {
 //    private Table buildBackgroundLayer() {
 //        Table table = new Table();
 ////        table.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-//        this.imgBackground = new Image(this.game.gameSkin,"backgroundMenu");
+//        this.imgBackground = new Image(this.directedGame.gameSkin,"backgroundMenu");
 //        table.add(this.imgBackground).fill().expand();
 //
 //        return table;
 //    }
 
 //    private void onLearningClicked() {
-//        this.game.setScreen(new ScripMiddleScreen(this.game));
+//        this.directedGame.setScreen(new ScripMiddleScreen(this.directedGame));
 //    }
 //
 //    private void onTreningClicked() {
-//        this.game.setScreen(new ScripTreningScreen(this.game));
+//        this.directedGame.setScreen(new ScripTreningScreen(this.directedGame));
 //    }
 //    private void onPracticeClicked() {
-//        this.game.setScreen(new ScripPackScreen(this.game));
+//        this.directedGame.setScreen(new ScripPackScreen(this.directedGame));
 //    }
 
     @Override
@@ -266,8 +266,8 @@ public class ScripPackScreen extends AbstractGameScreen {
     @Override
     public void resume() {
 //        System.out.println("resume");
-//        this.game.camera.viewportWidth = Gdx.graphics.getWidth();
-//        this.game.camera.viewportHeight = Gdx.graphics.getHeight();
+//        this.directedGame.camera.viewportWidth = Gdx.graphics.getWidth();
+//        this.directedGame.camera.viewportHeight = Gdx.graphics.getHeight();
     }
 
     @Override
@@ -290,10 +290,11 @@ public class ScripPackScreen extends AbstractGameScreen {
     public void show() {
 //        System.out.println("show");
 //        this.stage = new Stage();
-//        this.game.camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+//        this.directedGame.camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         Gdx.input.setCatchBackKey(true);
-        this.stage = new Stage(new ExtendViewport(Constants.VIEWPORT_GUI_WIDTH, Constants.VIEWPORT_GUI_HEIGHT, game.camera)) {
+        this.stage = new Stage(new ExtendViewport(Constants.VIEWPORT_GUI_WIDTH,
+                Constants.VIEWPORT_GUI_HEIGHT, directedGame.camera)) {
             @Override
             public boolean keyUp(int keycode) {
 
@@ -309,12 +310,12 @@ public class ScripPackScreen extends AbstractGameScreen {
 
 //        GameManager.ourInstance.setGameState(GameState.MOVE);/////////////////////////
 
-//        this.atlas = (TextureAtlas)this.game.manager.get("sprites.atlas", TextureAtlas.class);
+//        this.atlas = (TextureAtlas)this.directedGame.manager.get("sprites.atlas", TextureAtlas.class);
         this.rebuildStage();
     }
 
     private void Back() {
-        this.game.setScreen(new ScripMenuScreen(this.game));
+        this.directedGame.setScreen(new ScripMenuScreen(this.directedGame));
     }
 
     private void renderGuiFpsCounter() {

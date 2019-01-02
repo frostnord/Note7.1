@@ -1,10 +1,10 @@
-package com.insomnian.note.actors.menu;
+package com.insomnian.note.menu;
 
 
 import com.badlogic.gdx.math.Rectangle;
 import com.insomnian.note.utils.Constants;
 
-public class ScripKeyButton extends GameButton {
+public class ScripKeyButton extends com.insomnian.note.menu.GameButton {
 
     public interface ScripKeyListener {
         public void onStart();

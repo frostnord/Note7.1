@@ -42,7 +42,7 @@ public class MusicScreen implements Screen {
 
 
     public MusicScreen(final Note game, int number) {
-//        super(game);
+//        super(directedGame);
         this.game = game;
         lineImg= Assets.instance.decoration.lineImg;
 //        this.number = number;
@@ -69,7 +69,7 @@ public class MusicScreen implements Screen {
 
 //        GameManager.ourInstance.setGameState(GameState.MOVE);/////////////////////////
 
-//        this.atlas = (TextureAtlas)this.game.manager.get("sprites.atlas", TextureAtlas.class);
+//        this.atlas = (TextureAtlas)this.directedGame.manager.get("sprites.atlas", TextureAtlas.class);
 
 
         this.buildStage();
@@ -103,9 +103,9 @@ public class MusicScreen implements Screen {
 
 //        }
     }
-//        this.game.levelToLoad = n;
-//        ScripPackScreen.this.game.setScreen(new ScripPracticeScreen(game, n));
-//        AudioManager.instance.play(com.gamelounge.chrooma.game.Assets.instance.sounds.buttonSound, 1.0f);
+//        this.directedGame.levelToLoad = n;
+//        ScripPackScreen.this.directedGame.setScreen(new ScripPracticeScreen(directedGame, n));
+//        AudioManager.instance.play(com.gamelounge.chrooma.directedGame.Assets.instance.sounds.buttonSound, 1.0f);
 
 
     private void buildStage() {

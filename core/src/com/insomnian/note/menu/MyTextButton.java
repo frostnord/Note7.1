@@ -1,4 +1,4 @@
-package com.insomnian.note.actors.menu;
+package com.insomnian.note.menu;
 
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;

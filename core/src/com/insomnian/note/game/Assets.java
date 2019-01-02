@@ -330,7 +330,7 @@ public class Assets implements AssetErrorListener, Disposable {
         public AssetSounds(AssetManager assetManager) {
 //            this.jump = (Sound) assetManager.get("sounds/jump.wav", Sound.class);
 
-            this.do1 = (Sound) assetManager.get("sound/scrip/0.ogg", Sound.class);///do
+            this.do1 = assetManager.get("sound/scrip/0.ogg", Sound.class);///do
 
 //            this.gunShot = (Sound) assetManager.get("sounds/gun_shot.wav", Sound.class);
 //            this.heroHurt = (Sound) assetManager.get("sounds/hero_hurt.wav", Sound.class);
@@ -350,9 +350,14 @@ public class Assets implements AssetErrorListener, Disposable {
         public final TextButton.TextButtonStyle textButtonStyle;
         public final TextButton.TextButtonStyle optionDiologTextButtonStyle;
         public final Window.WindowStyle windowStyle;
+        public final CheckBox.CheckBoxStyle checkBoxStyle ;
 //        public final Window windowSkin;
 
         private final Skin windowSkin;
+
+        public final Skin uiSkin;
+
+        public final Label.LabelStyle labelStyle;
 //
 
 
@@ -380,6 +385,31 @@ public class Assets implements AssetErrorListener, Disposable {
             windowStyle = new Window.WindowStyle();
             windowStyle.titleFont = Assets.instance.fonts.packNote;///////////проба
             windowStyle.background = skin.getDrawable("PlayButton");
+
+            checkBoxStyle = new CheckBox.CheckBoxStyle();
+            checkBoxStyle.checked = skin.getDrawable("PlayButton");
+
+
+            checkBoxStyle.checkboxOn = skin.getDrawable("PlayButton");
+            checkBoxStyle.checkboxOff = skin.getDrawable("PlayButton");
+            checkBoxStyle.font = Assets.instance.fonts.packNote;
+            checkBoxStyle.checkedOverFontColor = Color.BLACK;
+
+            uiSkin = new Skin(atlasSkin);
+
+//            checkBoxStyle = new CheckBox.CheckBoxStyle();
+//            checkBoxStyle.checked = uiSkin.getDrawable("sound_off_checkbox");
+//
+//            checkBoxStyle.checkboxOn = uiSkin.getDrawable("sound_off_checkbox");
+//            checkBoxStyle.checkboxOff = uiSkin.getDrawable("sound_off_checkbox");
+
+//            uiSkin.getFont("wolfsbane2ii.ttf").getData().setScale(2,2);
+//            checkBoxStyle.font = Assets.instance.fonts.packNote;
+//            musicRegion = uiAtlas.findRegion("music");
+            labelStyle = new Label.LabelStyle();
+            labelStyle.fontColor = Color.WHITE;
+            labelStyle.font = Assets.instance.fonts.levelComplete;
+
         }
 
 
@@ -400,6 +430,11 @@ public class Assets implements AssetErrorListener, Disposable {
             uiSkin = new Skin(uiAtlas);
 
             checkBoxStyle = new CheckBox.CheckBoxStyle();
+            checkBoxStyle.checked = uiSkin.getDrawable("sound_off_checkbox");
+
+            checkBoxStyle.checkboxOn = uiSkin.getDrawable("sound_off_checkbox");
+            checkBoxStyle.checkboxOff = uiSkin.getDrawable("sound_off_checkbox");
+
 //            uiSkin.getFont("wolfsbane2ii.ttf").getData().setScale(2,2);
 //            checkBoxStyle.font = Assets.instance.fonts.packNote;
 //            musicRegion = uiAtlas.findRegion("music");

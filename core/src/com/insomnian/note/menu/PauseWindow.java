@@ -1,34 +1,32 @@
-package com.insomnian.note.actors.menu;
+package com.insomnian.note.menu;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.insomnian.note.Note;
+import com.insomnian.note.enums.GameState;
 import com.insomnian.note.game.Assets;
+import com.insomnian.note.screens.DirectedGame;
 import com.insomnian.note.screens.ScripPackScreen;
 import com.insomnian.note.screens.ScripPracticeScreen;
 
-public class WinWindow extends Window {
+public class PauseWindow extends Window {
 
-    private final Stage stage;
     private final int score;
-    private final Note game;
     private final int number;
+    private Stage stage ;
     private int star;
+    private DirectedGame directedGame;
 
-    public WinWindow(String title, Skin skin, Stage stage, int score, final Note game, final int number,int star) {
-        super(title, skin);
-
+    public PauseWindow(String title, Stage stage, int score, final DirectedGame directedGame, final int number) {
+        super("", Assets.instance.skin.windowStyle);
         this.stage = stage;
         this.score = score;
-        this.game= game;
+        this.directedGame = directedGame;
         this.number = number;
-        this.star = star;
 
         Table table = new Table();
         //        table.debug();
@@ -39,23 +37,9 @@ public class WinWindow extends Window {
         System.out.println(stage.getViewport().getWorldWidth() / 2 +"+"+ stage.getViewport().getWorldWidth() / 3);
         setPosition(stage.getViewport().getWorldWidth() / 4, stage.getViewport().getWorldHeight() / 3);
 
-        if (score <= 50) {
-            table.add(new Image(Assets.instance.decoration.star)).center().colspan(3).padBottom(50).size(150, 150);
-        } else if (score > 50 && score < 90) {
-            table.debug();
-            table.add(new Image(Assets.instance.decoration.star)).padBottom(50).size(150, 150).padRight(100);
-            table.add(new Image(Assets.instance.decoration.star)).padBottom(50).size(150, 150);
-            table.center();
-            star = 2;
-        } else if (score >= 90) {
-            table.add(new Image(Assets.instance.decoration.star)).center().padBottom(50).size(150, 150).padRight(100);
-            table.add(new Image(Assets.instance.decoration.star)).center().padBottom(50).size(150, 150).padRight(100);
-            table.add(new Image(Assets.instance.decoration.star)).center().padBottom(50).size(150, 150);
-            star = 3;
-        }
 
         Button btnWindowPack = new Button(Assets.instance.skin.buttonStyle);
-        Image imgWindowPrew = new Image(this.game.gameSkin, "prew");
+        Image imgWindowPrew = new Image(this.directedGame.gameSkin, "prew");
         imgWindowPrew.setOrigin(imgWindowPrew.getWidth() / 2.0f, imgWindowPrew.getHeight() / 2.0f);
         btnWindowPack.add((Actor) imgWindowPrew);
         btnWindowPack.setOrigin(btnWindowPack.getWidth() / 2.0f, btnWindowPack.getHeight() / 2.0f);
@@ -63,40 +47,22 @@ public class WinWindow extends Window {
             @Override
             public void changed(ChangeListener.ChangeEvent changeEvent, Actor actor) {
 
-                game.setScreen( new ScripPackScreen(game));
+                directedGame.setScreen( new ScripPackScreen(directedGame));
+                remove();
             }
         });
         table2.add(btnWindowPack).size(200, 200).padRight(50);
 
-//        TextButton homeButton = new TextButton("<", Assets.instance.skin.textButtonStyle);
-//        homeButton.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//
-////                window.remove();
-//                ScripPracticeScreen.this.game.setScreen( new ScripPackScreen(game));
-//            }
-//        });
-//        table2.add(homeButton).size(200, 200).padRight(50);
-//        TextButton packButton = new TextButton("[=]", Assets.instance.skin.textButtonStyle);
-//        packButton.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                window.remove();
-//            }
-//        });
-//        table2.add(packButton).size(200, 200);
-
-
         Button btnWindowRestart = new Button(Assets.instance.skin.buttonStyle);
-        Image imgWindowRestart = new Image(this.game.gameSkin, "restart");
+        Image imgWindowRestart = new Image(this.directedGame.gameSkin, "restart");
         imgWindowRestart.setOrigin(imgWindowRestart.getWidth() / 2.0f, imgWindowRestart.getHeight() / 2.0f);
         btnWindowRestart.add((Actor) imgWindowRestart);
         btnWindowRestart.setOrigin(btnWindowRestart.getWidth() / 2.0f, btnWindowRestart.getHeight() / 2.0f);
         btnWindowRestart.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeListener.ChangeEvent changeEvent, Actor actor) {
-                game.setScreen(new ScripPracticeScreen(game, number));
+                directedGame.setScreen(new ScripPracticeScreen(directedGame, number));
+                remove();
             }
         });
         table2.add(btnWindowRestart).size(200, 200).center();
@@ -105,24 +71,25 @@ public class WinWindow extends Window {
 //        table2.add(new MyTextButton("R", Assets.instance.skin.textButtonStyle, new ChangeListener() {
 //            @Override
 //            public void changed(ChangeEvent event, Actor actor) {
-//                ScripPracticeScreen.this.game.setScreen(new ScripPracticeScreen(game, number));
+//                ScripPracticeScreen.this.directedGame.setScreen(new ScripPracticeScreen(directedGame, number));
 ////                System.out.println(number+"pack number");
 //            }
 //        })).size(200, 200).center();
 
-        if (number!= 11) {
+
             Button btnWindowPlay = new Button(Assets.instance.skin.buttonStyle);
-            Image imgWindowNext = new Image(this.game.gameSkin, "next");
+            Image imgWindowNext = new Image(this.directedGame.gameSkin, "next");
             imgWindowNext.setOrigin(imgWindowNext.getWidth() / 2.0f, imgWindowNext.getHeight() / 2.0f);
             btnWindowPlay.add((Actor) imgWindowNext);
             btnWindowPlay.setOrigin(btnWindowRestart.getWidth() / 2.0f, btnWindowRestart.getHeight() / 2.0f);
             btnWindowPlay.addListener(new ChangeListener() {
                 @Override
                 public void changed(ChangeEvent changeEvent, Actor actor) {
-//                    ScripPracticeScreen.this.game.setScreen(new ScripPracticeScreen(game, number + 1));
+//                    ScripPracticeScreen.this.directedGame.setScreen(new ScripPracticeScreen(directedGame, number + 1));
                     remove();
 //                status("action");
-                    game.gameStatus = "action";
+//                    directedGame.gameStatus = "action";
+                    directedGame.gs = GameState.MOVE;
                 }
             });
             table2.add(btnWindowPlay).size(200, 200).padLeft(50);
@@ -130,14 +97,17 @@ public class WinWindow extends Window {
 //            table2.add(new MyTextButton(">>", Assets.instance.skin.textButtonStyle, new ChangeListener() {
 //                @Override
 //                public void changed(ChangeEvent event, Actor actor) {
-//                    ScripPracticeScreen.this.game.setScreen(new ScripPracticeScreen(game, number + 1));
+//                    ScripPracticeScreen.this.directedGame.setScreen(new ScripPracticeScreen(directedGame, number + 1));
 //                }
 //            })) .size(200, 200).padLeft(50);
-        }
+
 //       window.add(musicCheckBox).left().fill();
         row().pad(5);
         add(table);
         row().pad(5);
         add(table2);
+
+
     }
+
 }

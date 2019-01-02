@@ -13,12 +13,12 @@ import com.insomnian.note.screens.SplashScreen;
 public class Note extends DirectedGame {
 
     public String densite;
-    public OrthographicCamera camera;
+//    public OrthographicCamera camera;
     public String typeScreen;
 
-    public AssetManager manager = new AssetManager();
-    public Skin gameSkin;
-    public Skin uiSkin;
+//    public AssetManager manager = new AssetManager();
+//    public Skin gameSkin;
+//    public Skin uiSkin;
 
 
 //    { return this == UP ? DOWN : UP; }

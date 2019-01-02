@@ -61,7 +61,7 @@ public class GamePreferences {
 //        if (n2 != 0 && (this.prefs.getInteger("levelStar-" + n3 + "-" + n) < n2 || this.prefs.getInteger("levelStar-" + n3 + "-" + n) == 0)) {
             this.prefs.putInteger("levelStar-" + mode + "-" + pack, star);
 //            this.setNextLevel(n);
-        //game mode - 1 scrip
+        //directedGame mode - 1 scrip
             // 2 - bass
 //        }
         this.prefs.flush();

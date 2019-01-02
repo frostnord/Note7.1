@@ -571,7 +571,21 @@ LearningScrip_mid
   orig: 186, 186
   offset: 0, 0
   index: -1
+sound_on_checkbox
+  rotate: false
+  xy: 2, 2
+  size: 186, 186
+  orig: 186, 186
+  offset: 0, 0
+  index: -1
 PracticeScrip_right
+  rotate: false
+  xy: 386, 304
+  size: 186, 186
+  orig: 186, 186
+  offset: 0, 0
+  index: -1
+sound_off_checkbox
   rotate: false
   xy: 386, 304
   size: 186, 186

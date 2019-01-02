@@ -12,7 +12,8 @@
 	  keybord:{down:keybord, up:keybord},
 	  level: { down: level, up:level},
 //	  lines:{down:lines, up:lines},
-	  keybord2:{down:keybord2, up:keybord2},
-	},
+	  keybord2:{down:keybord2, up:keybord2}
+	}
+
 
 }

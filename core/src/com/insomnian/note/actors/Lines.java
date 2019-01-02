@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.insomnian.note.Note;
 import com.insomnian.note.game.Assets;
+import com.insomnian.note.screens.DirectedGame;
 
 /**
  * Created by 1 on 18.01.2016.
@@ -13,15 +14,15 @@ import com.insomnian.note.game.Assets;
 public class Lines extends Actor {
 
     public final Stage stage;
-    public final Note game;
+    public final DirectedGame directedGame;
     private final int hidthH;
     private final float widthW;
     private final TextureRegion lineTextureRegion;
     private final TextureRegion triangleTextureRegion;
 
-    public Lines(final Note game, Stage stage) {
+    public Lines(DirectedGame directedGame, Stage stage) {
         this.stage = stage;
-        this.game = game;
+        this.directedGame = directedGame;
         widthW = stage.getViewport().getWorldWidth();
         hidthH = (int) stage.getViewport().getWorldHeight();
         lineTextureRegion = Assets.instance.decoration.lineImg;

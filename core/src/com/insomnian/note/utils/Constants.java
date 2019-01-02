@@ -7,9 +7,9 @@ import com.badlogic.gdx.Graphics;
 public class Constants {
 //    800 480
 
-    // Visible game world is 5 meters wide
+    // Visible directedGame world is 5 meters wide
     public static final float VIEWPORT_WIDTH = 5.0f;
-    // Visible game world is 5 meters tall
+    // Visible directedGame world is 5 meters tall
     public static final float VIEWPORT_HEIGHT = 5.0f;
 
     public static final float VIEWPORT_GUI_WIDTH = 1920.0f;

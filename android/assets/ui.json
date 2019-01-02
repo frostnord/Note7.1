@@ -1,9 +1,9 @@
 {
   "com.badlogic.gdx.graphics.g2d.BitmapFont": {
-    "default-font": {
-      "file": "1.fnt"
-    }
-  },
+  "default-font": {
+    "file": "1.fnt"
+  }
+},
 
   "com.badlogic.gdx.graphics.Color": {
     "green": { "a": 1, "b": 0, "g": 1, "r": 0 },
@@ -128,18 +128,18 @@
 //    }
 //  },
 //
-//  "com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle": {
-//    "default": {
-//      "titleFont": "default-font",
-//      "background": "box",
-//      "titleFontColor": "white"
-//    },
-//    "dialog": {
-//      "titleFont": "default-font",
-//      "background": "box",
-//      "titleFontColor": "white",
-//    }
-//  },
+  "com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle": {
+    "default": {
+      "titleFont": "default-font",
+      "background": "bg",
+      "titleFontColor": "white"
+    },
+    "dialog": {
+      "titleFont": "default-font",
+      "background": "bg",
+      "titleFontColor": "white"
+    }
+  },
 //
 //  "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
 //    "default": {
@@ -160,10 +160,10 @@
 //    }
 //  },
 
-  "com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle": {
-//    "default": { "checkboxOn": "music_on_checkbox", "checkboxOff": "music_off_checkbox", "font": "default-font", "fontColor": "white" }
-    "music": { "checkboxOn": "music_on_checkbox", "checkboxOff": "music_off_checkbox", "font": "default-font", "fontColor": "white" },
-    "sound": { "checkboxOn": "sound_on_checkbox", "checkboxOff": "sound_off_checkbox", "font": "default-font", "fontColor": "white" },
-    "language": { "checkboxOn": "sound_on_checkbox", "checkboxOff": "sound_off_checkbox", "font": "default-font", "fontColor": "white" }
+  com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle: {
+    default: { checkboxOn: music_on_checkbox, checkboxOff: music_off_checkbox, font: default-font, fontColor: white },
+    music: { checkboxOn: music_on_checkbox, checkboxOff: music_off_checkbox, font: default-font, fontColor: white },
+    sound: { checkboxOn: sound_on_checkbox, checkboxOff: sound_off_checkbox, font: default-font, fontColor: white },
+    language: { checkboxOn: language_do_checkbox, checkboxOff: language_c_checkbox, font: default-font, fontColor: white }
   }
 }

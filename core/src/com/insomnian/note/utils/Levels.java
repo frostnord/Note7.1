@@ -28,7 +28,7 @@ public class Levels {
     public static int[] getLevel(int lvl) {
 //        System.out.println(Arrays.deepToString(levels));
 //        System.out.println(levels[lvl]);
-        System.out.println(Arrays.toString(ls[lvl]));
+//        System.out.println(Arrays.toString(ls[lvl]));
         return ls[lvl];
     }
 }
