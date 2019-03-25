@@ -14,7 +14,6 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.insomnian.note.Note;
 import com.insomnian.note.game.Assets;
 import com.insomnian.note.utils.Constants;
 import com.insomnian.note.utils.GamePreferences;
@@ -44,12 +43,12 @@ public class ScripPackScreen extends AbstractGameScreen {
     private ScrollPane scroller;
     private int mode;
     public Label.LabelStyle number;
-    final Color black;
+    final Color whate;
 
 
     public ScripPackScreen(DirectedGame directedGame) {
         super(directedGame);
-        this.black = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+        this.whate = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 //        this.Height = Gdx.graphics.getHeight();
 ////        System.out.println( Height);
 //        this.Width = Gdx.graphics.getWidth();
@@ -59,7 +58,7 @@ public class ScripPackScreen extends AbstractGameScreen {
 //        this.buildMenuLayers();
 //        this.assembleStage();////////////////
 
-        this.number = new Label.LabelStyle(Assets.instance.fonts.levelCompleted, this.black);
+        this.number = new Label.LabelStyle(Assets.instance.fonts.levelCompleted, this.whate);
         Table table2 = this.buildLevelSelectorLayer();
         this.stage.clear();
         this.stage.addActor(table2);
@@ -191,7 +190,7 @@ public class ScripPackScreen extends AbstractGameScreen {
 //                Image image = new Image(this.directedGame.gameSkin, "Star1");
                 image.setSize(stage.getViewport().getWorldWidth() / 6.0f, stage.getViewport().getWorldWidth() / 6.0f);
                 button.addActor(image);
-//                image.setColor(this.black);
+//                image.setColor(this.whate);
                 image.addAction(Actions.sequence((Action) Actions.alpha(0.0f), (Action) Actions.delay(f), (Action) Actions.fadeIn(0.2f)));
             } while (true);
 //            break;
@@ -249,7 +248,7 @@ public class ScripPackScreen extends AbstractGameScreen {
 //        Gdx.gl.glClear(16384);
         stage.act(delta);
         stage.draw();
-        renderGuiFpsCounter();
+//        renderGuiFpsCounter();
     }
 
     @Override
@@ -310,7 +309,7 @@ public class ScripPackScreen extends AbstractGameScreen {
 
 //        GameManager.ourInstance.setGameState(GameState.MOVE);/////////////////////////
 
-//        this.atlas = (TextureAtlas)this.directedGame.manager.get("sprites.atlas", TextureAtlas.class);
+//        this.atlas = (TextureAtlas)this.directedGame.assetManager.get("sprites.atlas", TextureAtlas.class);
         this.rebuildStage();
     }
 
@@ -336,7 +335,7 @@ public class ScripPackScreen extends AbstractGameScreen {
         stage.getBatch().begin();
         fpsFont.draw(stage.getBatch(), "FPS: " + fps, x, y);
         stage.getBatch().end();
-        fpsFont.setColor(1, 1, 1, 1); // black
+        fpsFont.setColor(1, 1, 1, 1); // whate
     }
 }
 

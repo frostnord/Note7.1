@@ -6,9 +6,11 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Value;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.insomnian.note.game.Assets;
@@ -33,12 +35,11 @@ public class SettingsWindow extends Window {
         setMovable(false);
 //        setHeight(stage.getHeight()/1.5f);
         pad(60);
-//        setWidth(stage.getWidth()/1.5f);
-//        getBackground().setMinWidth(599);
-
-//
 //        optDialog.text(new Label("Setings", new Label.LabelStyle(Assets.instance.fonts.levelComplete, Color.WHITE)));
-        musicCheckBox = new CheckBox("", directedGame.uiSkin, "music");
+        this.musicCheckBox = new CheckBox("", directedGame.uiSkin, "music");
+//        Image plusImage = new Image(directedGame.uiSkin, "sound_on_checkbox");
+//        musicCheckBox.addActor(plusImage);
+//        this.musicCheckBox.setSize(500,500);
 
 //        musicCheckBox.setTransform(true);
 //        musicCheckBox.getStyle().down.setMinWidth(2.0f);
@@ -64,9 +65,9 @@ public class SettingsWindow extends Window {
         });
         String languageRu ;
         if (GamePreferences.instance.languageRu()){
-            languageRu ="Do Re Mi";
+            languageRu =" Re Mi Fa";
         }else{
-            languageRu="C D F";
+            languageRu=" D E F";
         }
         languageCheckBox = new CheckBox("",directedGame.uiSkin,"language");/// доделатьc языки
         languageLabel = new Label(languageRu, new Label.LabelStyle(Assets.instance.fonts.levelCompleted,Color.WHITE));
@@ -76,9 +77,9 @@ public class SettingsWindow extends Window {
                 boolean languageRuTrue = languageCheckBox.isChecked();
                 GamePreferences.instance.setLanguage(languageRuTrue);
                 if (languageRuTrue){
-                    languageLabel.setText("Do Re Mi");
+                    languageLabel.setText(" Re Mi Fa");
                 }else{
-                    languageLabel.setText("C D E");
+                    languageLabel.setText(" D E F");
 //                    languageLabel.setAlignment(Align.center);
                 }
 //                musicManager.setEnabled(isMusicOn);
@@ -87,12 +88,14 @@ public class SettingsWindow extends Window {
             }
         });
 
-        Label musicLabel = new Label("Music", new Label.LabelStyle(Assets.instance.fonts.levelCompleted,Color.WHITE));
+        Label musicLabel = new Label(" Music", new Label.LabelStyle(Assets.instance.fonts.levelCompleted,Color.WHITE));
         Label soundLabel = new Label("Sound", new Label.LabelStyle(Assets.instance.fonts.levelCompleted,Color.WHITE));
 
 //        debugAll();
         add(new Label("Settings", new Label.LabelStyle(Assets.instance.fonts.levelCompleted, Color.WHITE))).colspan(2);
         row().padBottom(30).fill().expand();
+//        add(musicCheckBox).width(400).height(Value.percentHeight(.5f)).fill();
+//        musicCheckBox.setScale(4);
         add(musicCheckBox);
 
         add(musicLabel).padLeft(10);
@@ -103,14 +106,14 @@ public class SettingsWindow extends Window {
         add(languageCheckBox);
         add(languageLabel).width(450).padLeft(10);
         row().padBottom(30).fill().expand();
-        final TextButton oKbutton = new TextButton("Ok",Assets.instance.skin.optionDiologTextButtonStyle);
-        oKbutton.addListener(new ChangeListener() {
+        final TextButton okButton = new TextButton("Ok",Assets.instance.skin.optionDiologTextButtonStyle);
+        okButton.addListener(new ChangeListener() {
             public void changed(ChangeEvent event, Actor actor) {
                 GamePreferences.instance.flush();
                 remove();
             }
         });
-        add(oKbutton).colspan(2).size(120,120);
+        add(okButton).colspan(2).size(120,120);
         pack();
 //        isModal();
         setPosition(stage.getWidth()/2- getWidth()/2,stage.getHeight()/2-getHeight()/2);

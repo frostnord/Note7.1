@@ -1,17 +1,12 @@
 package com.insomnian.note.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.insomnian.note.Note;
-import com.insomnian.note.game.Assets;
 import com.insomnian.note.utils.Constants;
 
 /**
@@ -75,8 +70,8 @@ public class LoadingScreen extends AbstractGameScreen {
 
 
 
-        if (this.directedGame.manager.update()&& this.timer < 0.0f) {
-//            Assets.instance.init(this.directedGame.manager);
+        if (this.directedGame.assetManager.update()&& this.timer < 0.0f) {
+//            Assets.instance.init(this.directedGame.assetManager);
 //            this.directedGame.setScreen(new FirstMenuScreen(directedGame));////////////////////////////
         }
         this.timer-=50f;
@@ -94,12 +89,12 @@ public class LoadingScreen extends AbstractGameScreen {
 
 
 
-//        this.directedGame.manager.load("sprites.atlas", TextureAtlas.class);
-//        this.directedGame.manager.finishLoading();
+//        this.directedGame.assetManager.load("sprites.atlas", TextureAtlas.class);
+//        this.directedGame.assetManager.finishLoading();
 //
 //        this.directedGame.gameSkin = new Skin(Gdx.files.internal("sprites.json"), new TextureAtlas("sprites.atlas"));
 //
-//        Assets.instance.init(this.directedGame.manager);
+//        Assets.instance.init(this.directedGame.assetManager);
         this.rebuildStage();
     }
 }

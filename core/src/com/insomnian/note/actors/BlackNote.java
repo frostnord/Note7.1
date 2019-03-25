@@ -12,7 +12,6 @@ import com.badlogic.gdx.utils.Array;
 import com.insomnian.note.enums.GameState;
 import com.insomnian.note.game.Assets;
 import com.insomnian.note.screens.DirectedGame;
-import com.insomnian.note.screens.ScripPracticeScreen;
 
 
 public class BlackNote extends Actor {
@@ -164,7 +163,7 @@ public class BlackNote extends Actor {
 
 //        stateTime += Gdx.graphics.getDeltaTime();
 
-    if  (game.gs == GameState.MOVE){
+    if  (game.gameState == GameState.MOVE){
         position.x -= 130 * delta;
         }
         if (position.x <= 110) {

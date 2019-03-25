@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
@@ -21,20 +22,22 @@ public class PauseWindow extends Window {
     private int star;
     private DirectedGame directedGame;
 
-    public PauseWindow(String title, Stage stage, int score, final DirectedGame directedGame, final int number) {
-        super("", Assets.instance.skin.windowStyle);
+    public PauseWindow(String title, Stage stage, Skin skin, int score, final DirectedGame directedGame, final int number) {
+        super("",skin);
         this.stage = stage;
         this.score = score;
         this.directedGame = directedGame;
         this.number = number;
+        setBackground("pauseBg");
+//        Background(this.directedGame.gameSkin, "ScripGorZnak");
 
         Table table = new Table();
         //        table.debug();
         Table table2 = new Table();
-        table2.debug();
+//        table2.debug();
 
-        setSize(stage.getViewport().getWorldWidth() / 2, stage.getViewport().getWorldWidth() / 3);
-        System.out.println(stage.getViewport().getWorldWidth() / 2 +"+"+ stage.getViewport().getWorldWidth() / 3);
+        setSize(stage.getViewport().getWorldWidth() / 2, stage.getViewport().getWorldHeight() / 2.5f);
+//        System.out.println(stage.getViewport().getWorldWidth() / 2 +"+"+ stage.getViewport().getWorldWidth() / 3);
         setPosition(stage.getViewport().getWorldWidth() / 4, stage.getViewport().getWorldHeight() / 3);
 
 
@@ -89,7 +92,7 @@ public class PauseWindow extends Window {
                     remove();
 //                status("action");
 //                    directedGame.gameStatus = "action";
-                    directedGame.gs = GameState.MOVE;
+                    directedGame.gameState = GameState.MOVE;
                 }
             });
             table2.add(btnWindowPlay).size(200, 200).padLeft(50);

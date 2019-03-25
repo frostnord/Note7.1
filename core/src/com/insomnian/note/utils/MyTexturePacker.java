@@ -1,7 +1,7 @@
 package com.insomnian.note.utils;
 
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
-import com.kotcrab.vis.ui.VisUI;
+
 
 
 public class MyTexturePacker {

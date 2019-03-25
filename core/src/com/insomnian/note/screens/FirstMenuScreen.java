@@ -47,6 +47,7 @@ public class FirstMenuScreen extends AbstractGameScreen  {
     private Button btnMenuPlay;
     private Dialog optDialog;
     private DirectedGame directedgame;
+    private Button soundCheckBox;
 
     public FirstMenuScreen(DirectedGame directedGame) {
         super(directedGame);
@@ -79,9 +80,6 @@ public class FirstMenuScreen extends AbstractGameScreen  {
                 sw.setMovable(false);
                 stage.addActor(sw);
 //                sw.center();
-
-
-
             }
         });
         return table;
@@ -92,92 +90,91 @@ public class FirstMenuScreen extends AbstractGameScreen  {
         }
     }
 
-    private void optionsDialogInit() {
-//        layerSettings =new Table();
-        optDialog = new Dialog("", Assets.instance.skin.windowStyle);
-//        optDialog.debug();
-//        optDialog.setWidth(900);
-//        optDialog.getContentTable().setWidth(700);
-//        optDialog.setModal(true);
-        optDialog.center();
-        optDialog.setMovable(false);
-        optDialog.pad(60);
-        optDialog.setWidth(600);
-//        optDialog.text(new Label("Setings", new Label.LabelStyle(Assets.instance.fonts.levelComplete, Color.WHITE)));
-        final CheckBox musicCheckBox = new CheckBox("", directedgame.uiSkin, "music");
-//        musicCheckBox.setSize(50,50);
-        System.out.println(musicCheckBox.getWidth() +" "+ musicCheckBox.getHeight());
-        musicCheckBox.setChecked(GamePreferences.instance.isMusicEnabled());///вроде задает состояние
-        musicCheckBox.addListener(new ChangeListener() {
-            public void changed(ChangeEvent event, Actor actor) {
-                boolean isMusicOn = musicCheckBox.isChecked();
-                GamePreferences.instance.setMusicEnabled(isMusicOn);
-//                musicManager.setEnabled(isMusicOn);
-                Assets.instance.music.menuMusic.stop();
-                statusMusic();
-            }
-        });
-        final Button soundCheckBox = new CheckBox("", directedgame.uiSkin, "sound");
-        soundCheckBox.setChecked(GamePreferences.instance.isSoundEnabled());
-        soundCheckBox.addListener(new ChangeListener() {
-            public void changed(ChangeEvent event, Actor actor) {
-                boolean isSoundOn = soundCheckBox.isChecked();
-                GamePreferences.instance.setSoundEnabled(isSoundOn);
-//                Assets.instance.music.menuMusic.stop();
-            }
-        });
-        String languageRu ;
-        if (GamePreferences.instance.languageRu()){
-            languageRu ="Do Re Mi";
-        }else{
-            languageRu="C D F";
-        }
-        final Button languageCheckBox = new CheckBox("", directedgame.uiSkin, "language");/// доделать языки
-        final Label languageLabel = new Label(languageRu, new Label.LabelStyle(Assets.instance.fonts.levelCompleted,Color.WHITE));
-        languageCheckBox.setChecked(GamePreferences.instance.languageRu());
-        languageCheckBox.addListener(new ChangeListener() {
-            public void changed(ChangeEvent event, Actor actor) {
-                boolean languageRuTrue = languageCheckBox.isChecked();
-                GamePreferences.instance.setLanguage(languageRuTrue);
-                if (languageRuTrue){
-                    languageLabel.setText("Do Re Mi");
-                }else{
-                    languageLabel.setText("C D E");
-//                    languageLabel.setAlignment(Align.center);
-                }
-//                musicManager.setEnabled(isMusicOn);
+//    private void optionsDialogInit() {
+//        optDialog = new Dialog("", Assets.instance.skin.windowStyle);
+////        optDialog.debug();
+////        optDialog.setWidth(900);
+////        optDialog.getContentTable().setWidth(700);
+////        optDialog.setModal(true);
+//        optDialog.center();
+//        optDialog.setMovable(false);
+//        optDialog.pad(60);
+//        optDialog.setWidth(600);
+////        optDialog.text(new Label("Setings", new Label.LabelStyle(Assets.instance.fonts.levelComplete, Color.WHITE)));
+//        final CheckBox musicCheckBox = new CheckBox("", directedgame.uiSkin, "music");
+////        musicCheckBox.setSize(50,50);
+//        System.out.println(musicCheckBox.getWidth() +" "+ musicCheckBox.getHeight());
+//        musicCheckBox.setChecked(GamePreferences.instance.isMusicEnabled());///вроде задает состояние
+//        musicCheckBox.addListener(new ChangeListener() {
+//            public void changed(ChangeEvent event, Actor actor) {
+//                boolean isMusicOn = musicCheckBox.isChecked();
+//                GamePreferences.instance.setMusicEnabled(isMusicOn);
+////                musicManager.setEnabled(isMusicOn);
 //                Assets.instance.music.menuMusic.stop();
 //                statusMusic();
-            }
-        });
-
-        Label musicLabel = new Label("Music", new Label.LabelStyle(Assets.instance.fonts.levelCompleted,Color.WHITE));
-        Label soundLabel = new Label("Sound", new Label.LabelStyle(Assets.instance.fonts.levelCompleted,Color.WHITE));
-
-        optDialog.debugAll();
-//        optDialog.getContentTable().setWidth(800);
-        optDialog.getContentTable().add(new Label("Settings", new Label.LabelStyle(Assets.instance.fonts.levelCompleted, Color.WHITE))).colspan(2);
-        optDialog.getContentTable().row().padBottom(30).fill().expand();
-        optDialog.getContentTable().add((Actor)musicCheckBox).size(50,50);
-//        optDialog.getContentTable().addActor(musicCheckBox);
-//        optDialog.getContentTable()
-        optDialog.getContentTable().add(musicLabel).padLeft(10);
-        optDialog.getContentTable().row().padBottom(30).fill().expand();
-        optDialog.getContentTable().add((Actor) soundCheckBox).size(120, 120);
-        optDialog.getContentTable().add(soundLabel).padLeft(30);
-        optDialog.getContentTable().row().padBottom(30).fill().expand();
-        optDialog.getContentTable().add((Actor) languageCheckBox).size(120, 120);
-        optDialog.getContentTable().add(languageLabel).width(450).padLeft(10);
-        optDialog.getContentTable().row().padBottom(30).fill().expand();
-        final TextButton oKbutton = new TextButton("Ok",Assets.instance.skin.optionDiologTextButtonStyle);
-        oKbutton.addListener(new ChangeListener() {
-            public void changed(ChangeEvent event, Actor actor) {
-                GamePreferences.instance.flush();
-                optDialog.hide();
-            }
-        });
-        optDialog.getContentTable().add(oKbutton).colspan(2).size(120,120);
-}
+//            }
+//        });
+//        soundCheckBox = new CheckBox("", directedgame.uiSkin, "sound");
+//        soundCheckBox.setChecked(GamePreferences.instance.isSoundEnabled());
+//        soundCheckBox.addListener(new ChangeListener() {
+//            public void changed(ChangeEvent event, Actor actor) {
+//                boolean isSoundOn = soundCheckBox.isChecked();
+//                GamePreferences.instance.setSoundEnabled(isSoundOn);
+////                Assets.instance.music.menuMusic.stop();
+//            }
+//        });
+//        String languageRu ;
+//        if (GamePreferences.instance.languageRu()){
+//            languageRu =" Re Mi Fa";
+//        }else{
+//            languageRu=" C D F";
+//        }
+//        final Button languageCheckBox = new CheckBox("", directedgame.uiSkin, "language");/// доделать языки
+//        final Label languageLabel = new Label(languageRu, new Label.LabelStyle(Assets.instance.fonts.levelCompleted,Color.WHITE));
+//        languageCheckBox.setChecked(GamePreferences.instance.languageRu());
+//        languageCheckBox.addListener(new ChangeListener() {
+//            public void changed(ChangeEvent event, Actor actor) {
+//                boolean languageRuTrue = languageCheckBox.isChecked();
+//                GamePreferences.instance.setLanguage(languageRuTrue);
+//                if (languageRuTrue){
+//                    languageLabel.setText("Re Mi Fa");
+//                }else{
+//                    languageLabel.setText("D E F");
+////                    languageLabel.setAlignment(Align.center);
+//                }
+////                musicManager.setEnabled(isMusicOn);
+////                Assets.instance.music.menuMusic.stop();
+////                statusMusic();
+//            }
+//        });
+//
+//        Label musicLabel = new Label("Music", new Label.LabelStyle(Assets.instance.fonts.levelCompleted,Color.WHITE));
+//        Label soundLabel = new Label("Sound", new Label.LabelStyle(Assets.instance.fonts.levelCompleted,Color.WHITE));
+//
+//        optDialog.debugAll();
+////        optDialog.getContentTable().setWidth(800);
+//        optDialog.getContentTable().add(new Label("Settings", new Label.LabelStyle(Assets.instance.fonts.levelCompleted, Color.WHITE))).colspan(2);
+//        optDialog.getContentTable().row().padBottom(30).fill().expand();
+//        optDialog.getContentTable().add((Actor)musicCheckBox).size(50,50);
+////        optDialog.getContentTable().addActor(musicCheckBox);
+////        optDialog.getContentTable()
+//        optDialog.getContentTable().add(musicLabel).padLeft(30);
+//        optDialog.getContentTable().row().padBottom(30).fill().expand();
+//        optDialog.getContentTable().add((Actor) soundCheckBox).size(120, 120);
+//        optDialog.getContentTable().add(soundLabel).padLeft(30);
+//        optDialog.getContentTable().row().padBottom(30).fill().expand();
+//        optDialog.getContentTable().add((Actor) languageCheckBox).size(120, 120);
+//        optDialog.getContentTable().add(languageLabel).width(450).padLeft(30);
+//        optDialog.getContentTable().row().padBottom(30).fill().expand();
+//        final TextButton oKbutton = new TextButton("Ok",Assets.instance.skin.optionDiologTextButtonStyle);
+//        oKbutton.addListener(new ChangeListener() {
+//            public void changed(ChangeEvent event, Actor actor) {
+//                GamePreferences.instance.flush();
+//                optDialog.hide();
+//            }
+//        });
+//        optDialog.getContentTable().add(oKbutton).colspan(2).size(120,120);
+//}
 
     private void onPlayClicked() {
         this.directedgame.setScreen(new ScripMenuScreen(this.directedgame));
@@ -197,7 +194,6 @@ public class FirstMenuScreen extends AbstractGameScreen  {
         this.btnMenuScrip.add((Actor) imgMenuScrip);
         this.btnMenuScrip.setOrigin(btnMenuScrip.getWidth() / 2.0f, btnMenuScrip.getHeight() / 2.0f);
 
-//        this.btnMenuScrip.setPosition(100,100);
 //        table.add(this.btnMenuScrip).size(260.0f * this.sizeModifier);/////////////////////////////
 //        table.add(this.btnMenuScrip).size(Constants.VIEWPORT_GUI_WIDTH /4f ,Constants.VIEWPORT_GUI_WIDTH /4f*  Constants.ASPECT_RATIO);/////////////////////////////
 //        System.out.println(stage.getViewport().getWorldWidth() / 4);
@@ -219,7 +215,7 @@ public class FirstMenuScreen extends AbstractGameScreen  {
 
             @Override
             public void changed(ChangeEvent changeEvent, Actor actor) {
-//                MenuScreen.this.onStoreClicked();
+               FirstMenuScreen.this.directedgame.setScreen( new BassMenuScreen(directedgame));
             }
         });
         table.add(this.btnMenuBass).padLeft((this.stage.getViewport().getWorldWidth() / 11.0f));
@@ -254,7 +250,7 @@ public class FirstMenuScreen extends AbstractGameScreen  {
     private void rebuildStage() {
         this.buildMenuLayers();
         this.assembleStage();
-        optionsDialogInit();
+//        optionsDialogInit();
     }
 
     private void buildMenuLayers() {
@@ -298,7 +294,7 @@ public class FirstMenuScreen extends AbstractGameScreen  {
 
         statusMusic();
         this.camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        this.stage = new Stage(new ExtendViewport(Constants.VIEWPORT_GUI_WIDTH, Constants.VIEWPORT_GUI_HEIGHT, camera)) {
+        this.stage = new Stage(new ExtendViewport(Constants.VIEWPORT_GUI_WIDTH, Constants.VIEWPORT_GUI_HEIGHT)) {
             //        this.stage = new Stage(new ScreenViewport()){
 //        this.stage = new Stage(new ExtendViewport(800,480)){
 //        this.stage = new Stage(new StretchViewport(800,480)){
@@ -315,7 +311,7 @@ public class FirstMenuScreen extends AbstractGameScreen  {
 //        camera.position.set(Constants.VIEWPORT_GUI_WIDTH / 2f , Constants.VIEWPORT_GUI_HEIGHT / 2f, 0);
 
 
-//            this.directedgame.manager.load("sprites.atlas", TextureAtlas.class);///////
+//            this.directedgame.assetManager.load("sprites.atlas", TextureAtlas.class);///////
 
         Gdx.input.setCatchBackKey(true);
 //        this.stage = new Stage(){
@@ -337,7 +333,7 @@ public class FirstMenuScreen extends AbstractGameScreen  {
 //        camera.update();
 //        this.stage.setViewport(new FillViewport(800,480));
 
-//        this.atlas = (TextureAtlas)this.directedgame.manager.get("sprites.atlas", TextureAtlas.class); noooooooo
+//        this.atlas = (TextureAtlas)this.directedgame.assetManager.get("sprites.atlas", TextureAtlas.class); noooooooo
 //
 
         this.rebuildStage();
@@ -365,6 +361,7 @@ public class FirstMenuScreen extends AbstractGameScreen  {
     @Override
     public void resize(int n, int n2) {
         this.stage.getViewport().update(n, n2, true);
+//        this.stage.setViewport();
 //        this.sizeModifier = (float)Math.min((int)n / 1080.0f, (int)n2) ;
 //        camera.position.set(Constants.VIEWPORT_GUI_WIDTH / 2f, Constants.VIEWPORT_GUI_HEIGHT / 2f, 0);
     }

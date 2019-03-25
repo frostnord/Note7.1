@@ -47,7 +47,7 @@ public class MusicScreen implements Screen {
         lineImg= Assets.instance.decoration.lineImg;
 //        this.number = number;
         ar = Levels.getLevel(number);
-//        this.black = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+//        this.whate = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class MusicScreen implements Screen {
 
 //        GameManager.ourInstance.setGameState(GameState.MOVE);/////////////////////////
 
-//        this.atlas = (TextureAtlas)this.directedGame.manager.get("sprites.atlas", TextureAtlas.class);
+//        this.atlas = (TextureAtlas)this.directedGame.assetManager.get("sprites.atlas", TextureAtlas.class);
 
 
         this.buildStage();
@@ -201,7 +201,7 @@ public class MusicScreen implements Screen {
         stage.getBatch().begin();
         fpsFont.draw(stage.getBatch(), "FPS: " + fps, x, y);
         stage.getBatch().end();
-        fpsFont.setColor(1, 1, 1, 1); // black
+        fpsFont.setColor(1, 1, 1, 1); // whate
     }
 
     @Override

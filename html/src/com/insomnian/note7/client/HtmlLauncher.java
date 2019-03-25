@@ -3,7 +3,6 @@ package com.insomnian.note7.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.insomnian.note7.Note71;
 
 public class HtmlLauncher extends GwtApplication {
 

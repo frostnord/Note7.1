@@ -1,18 +1,14 @@
 package com.insomnian.note.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.insomnian.note.Note;
-import com.badlogic.gdx.Input;
 import com.insomnian.note.game.Assets;
 
 /**
@@ -22,7 +18,7 @@ public class SplashScreen implements Screen {
 
 //    private static final String IMAGES_ACAROLABS = "acarolabs.png";
     private static final String SOUNDS_SPLASH = "01-arkasia-destiny.mp3";
-    private final DirectedGame game;
+    private final DirectedGame directedGame;
 //    private boolean isSplashFinish;
     private Music music;
     private Image splashImage;
@@ -35,7 +31,7 @@ public class SplashScreen implements Screen {
     float timer;
 
     public SplashScreen(DirectedGame directedGame) {
-        this.game = directedGame;
+        this.directedGame = directedGame;
 //        Texture texture = new Texture(Gdx.files.internal(IMAGES_ACAROLABS));
 //        texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 //        this.splashImage = new Image(texture);
@@ -57,20 +53,20 @@ public class SplashScreen implements Screen {
         this.imgLogo = new Texture("LoadScreen.png");
 
         this.music = Gdx.audio.newMusic(Gdx.files.internal(SOUNDS_SPLASH));
-        this.music.play();
 //        this.splashImage.addAction(Actions.sequence(Actions.alpha(0.0f), Actions.fadeIn(0.5f)));
 //        AssetsLoader.load();
 
-        Assets.instance.load(game.manager);
-        this.game.manager.load("sprites.atlas", TextureAtlas.class);
-        this.game.manager.load("ui.atlas",TextureAtlas.class);
+        Assets.instance.load(directedGame.assetManager);
+        this.directedGame.assetManager.load("sprites.atlas", TextureAtlas.class);
+        this.directedGame.assetManager.load("ui.atlas",TextureAtlas.class);
 //
-        this.game.uiSkin = new Skin(Gdx.files.internal("ui.json"),new TextureAtlas(("ui.atlas")));
-        this.game.gameSkin = new Skin(Gdx.files.internal("sprites.json"), new TextureAtlas("sprites.atlas"));
-        this.game.manager.finishLoading();
+        this.directedGame.uiSkin = new Skin(Gdx.files.internal("ui.json"),new TextureAtlas(("ui.atlas")));
+        this.directedGame.gameSkin = new Skin(Gdx.files.internal("sprites.json"), new TextureAtlas("sprites.atlas"));
+        this.directedGame.assetManager.finishLoading();
+        this.music.play();
 
 
-        Assets.instance.init(this.game.manager);
+        Assets.instance.init(this.directedGame.assetManager);
     }
 
     @Override
@@ -84,11 +80,11 @@ public class SplashScreen implements Screen {
         this.batch.draw(this.imgLogo, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         this.batch.end();
 
-        if (game.manager.update()&& !this.music.isPlaying() ) {
+        if (directedGame.assetManager.update()&& !this.music.isPlaying() ) {
 //            this.splashImage.addAction(Actions.sequence(Actions.fadeOut(0.5f), Actions.alpha(0.0f), Actions.run(new Runnable() {
 //                public void run() {
 
-            SplashScreen.this.game.setScreen(new FirstMenuScreen(this.game));
+            SplashScreen.this.directedGame.setScreen(new FirstMenuScreen(this.directedGame));
 //            SplashScreen.this.directedGame.setScreen(new ScripPackScreen(this.directedGame));
 //                }
 //            })));

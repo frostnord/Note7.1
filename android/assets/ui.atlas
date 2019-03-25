@@ -1,69 +1,69 @@
 
 ui.png
-size: 1024,512
+size: 2048,512
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 bg
   rotate: false
-  xy: 2, 76
+  xy: 2, 30
   size: 380, 380
   orig: 380, 380
   offset: 0, 0
   index: -1
 language_c_checkbox
   rotate: false
-  xy: 572, 306
+  xy: 1240, 260
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
 language_do_checkbox
   rotate: false
-  xy: 572, 154
+  xy: 1392, 260
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
 music_off_checkbox
   rotate: false
-  xy: 724, 306
+  xy: 1544, 260
   size: 150, 150
   orig: 150, 150
   offset: 0, 0
   index: -1
 music_on_checkbox
   rotate: false
-  xy: 724, 154
+  xy: 1696, 260
   size: 150, 150
   orig: 150, 150
+  offset: 0, 0
+  index: -1
+pauseBg
+  rotate: false
+  xy: 384, 154
+  size: 426, 256
+  orig: 426, 256
+  offset: 0, 0
+  index: -1
+pauseBgZ
+  rotate: false
+  xy: 812, 154
+  size: 426, 256
+  orig: 426, 256
   offset: 0, 0
   index: -1
 sound_off_checkbox
   rotate: false
-  xy: 572, 2
+  xy: 1848, 260
   size: 150, 150
   orig: 150, 150
-  offset: 0, 0
-  index: -1
-sound_off_checkbox1
-  rotate: false
-  xy: 384, 270
-  size: 186, 186
-  orig: 186, 186
   offset: 0, 0
   index: -1
 sound_on_checkbox
   rotate: false
-  xy: 724, 2
+  xy: 384, 2
   size: 150, 150
   orig: 150, 150
-  offset: 0, 0
-  index: -1
-sound_on_checkbox1
-  rotate: false
-  xy: 384, 82
-  size: 186, 186
-  orig: 186, 186
   offset: 0, 0
   index: -1

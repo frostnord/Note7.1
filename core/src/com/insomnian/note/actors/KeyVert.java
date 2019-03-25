@@ -97,6 +97,8 @@ public class KeyVert extends Actor {
         addListener(new ClickListener() {
             //            @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                System.out.println(x);
+                System.out.println(y);
                 if (key == 1) {
                     if (WorldController.KEYNUMBER == number) {
                         keyTextureRegion = Assets.instance.noteImg.doGreenKeyImgActor;
@@ -150,26 +152,6 @@ public class KeyVert extends Actor {
                     ScripLeftScreen.firstActor.setNoteCliked(true);
                 }
                 Assets.play(number);
-//                SoundManager.soundPlay(number);
-//                System.out.println(number);
-
-
-
-
-//                try {
-//                    NUMBER = directedGame.getScreen().getClass().getField("currIndex");
-//                    String n = NUMBER.getName();
-//                    System.out.println(n);g
-//
-//                    keyTextureRegion = Assets.instance.noteImg.reKeyImgActor;
-//
-//                } catch (NoSuchFieldException e) {
-//                    e.printStackTrace();
-//                }
-//                if (ScripPracticeScreen.class == screen.getClass()) {
-//                    ScripPracticeScreen.setJeybordHeight(true);
-//                }
-
                 return true;
             }
 

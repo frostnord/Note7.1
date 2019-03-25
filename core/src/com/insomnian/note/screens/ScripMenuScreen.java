@@ -55,10 +55,6 @@ public class ScripMenuScreen extends AbstractGameScreen  {
         this.buildMenuLayers();
         this.assembleStage();////////////////
 
-//        this.imgBackground = new Image(this.directedGame.gameSkin,"backgroundMenu");
-//        this.imgBackground.setBounds(0.0F, 0.0F, this.Width, this.Height);
-//
-//
 //        this.treningMenuImg = new Image(this.directedGame.gameSkin, "TreningScrip_left");
 //        float f1 = this.Width / 5f;
 //        float f2 = treningMenuImg.getHeight() * f1 / treningMenuImg.getWidth();
@@ -128,13 +124,13 @@ public class ScripMenuScreen extends AbstractGameScreen  {
             @Override
             public void changed(ChangeEvent changeEvent, Actor actor) {/////////
 //                FirstMenuScreen.this.onPlayClicked();
-                System.out.println("dsdsd");
+//                System.out.println("dsdsd");?
                 ScripMenuScreen.this.onTreningClicked();
 
             }
         });
 
-        this.practiceMenuImg = new Button(this.directedGame.gameSkin, "TreningScrip_left");///"LearningScrip_mid"
+        this.practiceMenuImg = new Button(this.directedGame.gameSkin, "TreningScrip_mid");///"LearningScrip_mid"
         table.add(this.practiceMenuImg).padLeft(this.stage.getViewport().getWorldWidth()/11.0f);
         this.practiceMenuImg.addListener(new ChangeListener() {
 
@@ -144,7 +140,7 @@ public class ScripMenuScreen extends AbstractGameScreen  {
             }
         });
 
-        this.lerningMenuImg = new Button(this.directedGame.gameSkin, "TreningScrip_left");///"PracticeScrip_right"
+        this.lerningMenuImg = new Button(this.directedGame.gameSkin, "TreningScrip_prew");///"PracticeScrip_right"
         table.add(this.lerningMenuImg).padLeft(this.stage.getViewport().getWorldWidth()/11.0f );
         this.lerningMenuImg.addListener(new ChangeListener() {
 
@@ -153,7 +149,7 @@ public class ScripMenuScreen extends AbstractGameScreen  {
                 onPracticeClicked();
             }
         });
-        System.out.println(this.directedGame.gameSkin.getRegion("LearningScrip_mid").getRegionHeight() /2.5f);
+//        System.out.println(this.directedGame.gameSkin.getRegion("LearningScrip_mid").getRegionHeight() /2.5f);
         return table;
     }
 
@@ -228,7 +224,7 @@ public class ScripMenuScreen extends AbstractGameScreen  {
         Gdx.input.setInputProcessor(stage);
 //        this.stage.setViewport(new StretchViewport(800.0f, 480.0f));
         GameManager.ourInstance.setGameState(GameState.MOVE);
-//        this.atlas = (TextureAtlas)this.directedGame.manager.get("sprites.atlas", TextureAtlas.class);
+//        this.atlas = (TextureAtlas)this.directedGame.assetManager.get("sprites.atlas", TextureAtlas.class);
         this.rebuildStage();
 
     }

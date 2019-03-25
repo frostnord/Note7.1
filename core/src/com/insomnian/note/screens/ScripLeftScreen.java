@@ -32,7 +32,9 @@ public class ScripLeftScreen extends AbstractGameScreen {
 
     public ScripLeftScreen(DirectedGame directedGame) {
         super(directedGame);
+
     }
+
 
     private void buildStage() {
         this.imgBackground = new Image(this.directedGame.gameSkin, "backgroundGame");
@@ -43,17 +45,17 @@ public class ScripLeftScreen extends AbstractGameScreen {
                 this.stage.getViewport().getWorldHeight() - znakImg.getHeight());
         stage.addActor(znakImg);
 
-        stage.addActor(new KeyVert(directedGame, 3, stage, 0));
-        stage.addActor(new KeyVert(directedGame, 4, stage, 1));
-        stage.addActor(new KeyVert(directedGame, 5, stage, 2));
-        stage.addActor(new KeyVert(directedGame, 6, stage, 3));
-        stage.addActor(new KeyVert(directedGame, 7, stage, 4));
-        stage.addActor(new KeyVert(directedGame, 1, stage, 5));
-        stage.addActor(new KeyVert(directedGame, 2, stage, 6));
-        stage.addActor(new KeyVert(directedGame, 3, stage, 7));
-        stage.addActor(new KeyVert(directedGame, 4, stage, 8));
-        stage.addActor(new KeyVert(directedGame, 5, stage, 9));
-        stage.addActor(new KeyVert(directedGame, 6, stage, 10));
+        stage.addActor(new KeyVert(directedGame,3, stage, 0));
+        stage.addActor(new KeyVert(directedGame,4, stage, 1));
+        stage.addActor(new KeyVert(directedGame,5, stage, 2));
+        stage.addActor(new KeyVert(directedGame,6, stage, 3));
+        stage.addActor(new KeyVert(directedGame,7, stage, 4));
+        stage.addActor(new KeyVert(directedGame,1, stage, 5));
+        stage.addActor(new KeyVert(directedGame,2, stage, 6));
+        stage.addActor(new KeyVert(directedGame,3, stage, 7));
+        stage.addActor(new KeyVert(directedGame,4, stage, 8));
+        stage.addActor(new KeyVert(directedGame,5, stage, 9));
+        stage.addActor(new KeyVert(directedGame,6, stage, 10));
         stage.addActor(new KeyVert(directedGame,7,stage,11));
         stage.addActor(new KeyVert(directedGame,1,stage,12));
         stage.addActor(new KeyVert(directedGame,2,stage,13));
@@ -85,7 +87,7 @@ public class ScripLeftScreen extends AbstractGameScreen {
 
         stage.act(delta);
         stage.draw();
-        renderGuiFpsCounter();
+//        renderGuiFpsCounter();
     }
 
     public void controller() {
@@ -95,7 +97,7 @@ public class ScripLeftScreen extends AbstractGameScreen {
             WorldController.KEYNUMBER = currIndex;
             stage.addActor(firstActor);
         }
-        System.out.println(WorldController.KEYNUMBER);
+//        System.out.println(WorldController.KEYNUMBER);
         if (firstActor.getPosition().y <= stage.getViewport().getWorldHeight() / 2 ){
             if (secondActor == null) {
                 secondActor = new NoteVert(directedGame, stage);
@@ -136,7 +138,9 @@ public class ScripLeftScreen extends AbstractGameScreen {
                     if (GamePreferences.instance.isMusicEnabled()){
                         Assets.instance.music.menuMusic.play();
                     }
-                    ScripLeftScreen.this.Back();
+                    ScripLeftScreen.this.directedGame.setScreen(new ScripMenuScreen(directedGame));
+//                    directedGame.setScreen(new ScripMenuScreen(directedGame));
+//                    ScripLeftScreen.this.Back();
                 }
                 return false;
             }
@@ -196,6 +200,6 @@ public class ScripLeftScreen extends AbstractGameScreen {
         stage.getBatch().begin();
         fpsFont.draw(stage.getBatch(), "FPS: " + fps, x, y);
         stage.getBatch().end();
-        fpsFont.setColor(1, 1, 1, 1); // black
+        fpsFont.setColor(1, 1, 1, 1); // whate
     }
 }

@@ -27,9 +27,9 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
 
 public class ScripPracticeScreen extends AbstractGameScreen {
 
-    //    private final Color black;
+    //    private final Color whate;
     private int number;
-    private DirectedGame directrgame;
+    private DirectedGame directedGame;
     private ScrollPane scroller;
     private Stage stage;
     private Table layerBackground;
@@ -58,10 +58,11 @@ public class ScripPracticeScreen extends AbstractGameScreen {
 
     public ScripPracticeScreen(DirectedGame directedGame, int number) {
         super(directedGame);
-        this.directrgame = directedGame;
+//        Gdx.app.log("ScripPracticeScreen", "Start ");
+        this.directedGame = directedGame;
         this.number = number;
 //        directedGame.gameStatus = "action";
-        directedGame.gs = GameState.MOVE;
+        directedGame.gameState = GameState.MOVE;
         if (GamePreferences.instance.isMusicEnabled()) {
             Assets.instance.music.menuMusic.stop();
         }
@@ -81,7 +82,7 @@ public class ScripPracticeScreen extends AbstractGameScreen {
                 time += 1;
                 if (time >= 220f && massiv != 0 && noteInArray != 4) {
                     int s = randomizer.getRandom(number);
-                    BlackNote blackNote1 = new BlackNote(directrgame, s, stage, stage.getViewport().getWorldHeight(),
+                    BlackNote blackNote1 = new BlackNote(directedGame, s, stage, stage.getViewport().getWorldHeight(),
                             stage.getViewport().getWorldHeight() - this.stage.getViewport().getWorldHeight() / 4f, actors1);
                     stage.addActor(blackNote1);
                     actors1.add(blackNote1);
@@ -92,14 +93,15 @@ public class ScripPracticeScreen extends AbstractGameScreen {
             } else if (actors1.size == 0) {
 //                initWindow();
                 ////////вин виндов тут
-                WinWindow winWindow =  new WinWindow("",directrgame.uiSkin,stage,score,directedGame,number,star);
-                winWindow.setPosition(stage.getViewport().getWorldWidth() / 4, stage.getViewport().getWorldHeight() / 3);
-                stage.addActor(winWindow);
+                directedGame.gameState = GameState.PAUSE;
+                WinWindow winWindow =  new WinWindow("", directedGame.uiSkin,stage,score,directedGame,number,star);
+//                winWindow.setPosition(stage.getViewport().getWorldWidth() / 4, stage.getViewport().getWorldHeight() / 3);
 //                status("pause");
-                int currentStar = GamePreferences.instance.getNumberOfStar(1, number);
-                if (currentStar < star) {
-                    GamePreferences.instance.saveLastLevelStar(1, number, star);
-                }
+//                int currentStar = GamePreferences.instance.getNumberOfStar(1, number);
+//                if (currentStar < star) {
+//                    GamePreferences.instance.saveLastLevelStar(1, number, star);
+//                }
+                stage.addActor(winWindow);
             }
     }
 
@@ -112,16 +114,16 @@ public class ScripPracticeScreen extends AbstractGameScreen {
 
     @Override
     public void show() {
-        Gdx.app.log("GameScreen", "ScripPracticeScr ");
+        Gdx.app.log("ScripPracticeScreen", "gameScreen ");
+//        Gdx.app.log("GameScreen", "ScripPracticeScr ");
         Gdx.input.setCatchBackKey(true);
-        this.stage = new Stage(new ExtendViewport(Constants.VIEWPORT_GUI_WIDTH, Constants.VIEWPORT_GUI_HEIGHT, directrgame.camera)) {
+        this.stage = new Stage(new ExtendViewport(Constants.VIEWPORT_GUI_WIDTH, Constants.VIEWPORT_GUI_HEIGHT, directedGame.camera)) {
             @Override
             public boolean keyUp(int keycode) {
                 if ((keycode == Input.Keys.BACK) || (keycode == Input.Keys.ESCAPE)) {
-                    if (directrgame.gs != GameState.PAUSE) {
-
-                        directrgame.gs = GameState.PAUSE;
-                        PauseWindow pauseWindow = new PauseWindow("", stage, score, directrgame, number);
+                    if (directedGame.gameState != GameState.PAUSE) {
+                        directedGame.gameState = GameState.PAUSE;
+                        PauseWindow pauseWindow = new PauseWindow("", stage,directedGame.uiSkin, score, directedGame, number);
                         stage.addActor(pauseWindow);
 //                    ScripPracticeScreen.this.Back() ;
 //                    status("pause");
@@ -136,6 +138,9 @@ public class ScripPracticeScreen extends AbstractGameScreen {
                 return false;
             }
         };
+
+//        stage.setDebugAll(true);
+//        stage.setDebugUnderMouse(true);
         Gdx.input.setInputProcessor(stage);
 //        mode = 1;
 //        GameManager.ourInstance.setGameState(GameState.MOVE);/////////////////////////
@@ -151,7 +156,7 @@ public class ScripPracticeScreen extends AbstractGameScreen {
         this.scoreLayer = buildScoreLayer();
         stage.addActor(layerBackground);
         stage.addActor(scoreLayer);
-        stage.addActor(new Lines(directrgame, stage));
+        stage.addActor(new Lines(directedGame, stage));
 //        this.layerKeyboard=this.buildKeyboardLayer();
 //        this.layerLines = this.buildLinesLayer();
 //        this.layerControls = this.buildControlsLayer();
@@ -189,10 +194,12 @@ public class ScripPracticeScreen extends AbstractGameScreen {
 //                FirstMenuScreen.this.onPlayClicked();/////////////////////
                 showNote = true;
                 showNote();
-                WinWindow winWindow =  new WinWindow("",directrgame.uiSkin,stage,score,directedGame,number,star);
+             //////////////
+                WinWindow winWindow =  new WinWindow("", directedGame.uiSkin,stage,score,directedGame,number,star);
                 winWindow.setPosition(stage.getViewport().getWorldWidth() / 4, stage.getViewport().getWorldHeight() / 3);
+//
                 stage.addActor(winWindow);
-//                dialog.show(stage);
+            //////////////
             }
         });
         table.add(this.btnMenuScrip).bottom().right().size(stage.getViewport().getWorldHeight() / 4, stage.getViewport().getWorldHeight() / 4);
@@ -213,11 +220,11 @@ public class ScripPracticeScreen extends AbstractGameScreen {
 
     private Table buildBackgroundLayer() {
         Table table = new Table();
-        table.setBackground(directrgame.gameSkin.getDrawable("backgroundGame"));
+        table.setBackground(directedGame.gameSkin.getDrawable("backgroundGame"));
 //        table.debug();
         table.setSize(stage.getViewport().getWorldWidth(), stage.getViewport().getWorldHeight());
         table.setPosition(0.0f, 0.0f);
-        znakImg = new Image(this.directrgame.gameSkin, "ScripGorZnak");
+        znakImg = new Image(this.directedGame.gameSkin, "ScripGorZnak");
         znakImg.setPosition(0, this.stage.getViewport().getWorldHeight() / 2.7f);
         table.addActor(znakImg);
 
@@ -234,7 +241,7 @@ public class ScripPracticeScreen extends AbstractGameScreen {
         KeyGorizPack keyGorizPack;
 
         for (int i = 8; i < 15; i++) {
-            keyGorizPack = new KeyGorizPack(directrgame, i - 7, stage, i);
+            keyGorizPack = new KeyGorizPack(directedGame, i - 7, stage, i);
             final int finalI = i;
             keyGorizPack.addListener(new ClickListener() {
                 //            @Override
@@ -279,7 +286,7 @@ public class ScripPracticeScreen extends AbstractGameScreen {
         stage.act(delta);
         stage.draw();
 //        renderGuiFpsCounter();
-        if (directrgame.gameStatus == "action"){
+        if (directedGame.gameState == GameState.MOVE){
             controller();
         }
 
@@ -287,7 +294,7 @@ public class ScripPracticeScreen extends AbstractGameScreen {
 
 
     private void Back() {
-        this.directrgame.setScreen(new ScripPackScreen(this.directrgame));
+        this.directedGame.setScreen(new ScripPackScreen(this.directedGame));
     }
 
     private void renderGuiFpsCounter() {
@@ -308,7 +315,7 @@ public class ScripPracticeScreen extends AbstractGameScreen {
         stage.getBatch().begin();
         fpsFont.draw(stage.getBatch(), "FPS: " + fps, x, y);
         stage.getBatch().end();
-        fpsFont.setColor(1, 1, 1, 1); // black
+        fpsFont.setColor(1, 1, 1, 1); // whate
     }
 
     @Override

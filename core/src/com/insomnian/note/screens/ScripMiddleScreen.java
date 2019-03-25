@@ -216,7 +216,9 @@ public class ScripMiddleScreen extends AbstractGameScreen {
     @Override
     public void dispose() {
         stage.dispose();
+
     }
+
     private void Back() {
         this.directedGame.setScreen(new ScripMenuScreen(this.directedGame));
     }
@@ -243,10 +245,8 @@ public class ScripMiddleScreen extends AbstractGameScreen {
 //        buildLinesLayer();
         controller();
 
-//        if (keyStatus == KeyStatus.DOWN) {
-//            drawKey(key);
-//        }
-        renderGuiFpsCounter();
+
+//        renderGuiFpsCounter();
         score();
 
     }
@@ -268,50 +268,26 @@ public class ScripMiddleScreen extends AbstractGameScreen {
         stage.getBatch().begin();
         fpsFont.draw(stage.getBatch(), "FPS: " + fps, x, y);
         stage.getBatch().end();
-        fpsFont.setColor(1, 1, 1, 1); // black
+        fpsFont.setColor(1, 1, 1, 1); // whate
     }
 
     private  void score (){
-//        int fps = Gdx.graphics.getFramesPerSecond();
         BitmapFont score = Assets.instance.fonts.levelCompleted;
+        BitmapFont scoreRightFont = Assets.instance.fonts.scoreRight;
 
         float x = rightBorder.getX()+ 50;
         float y = rightBorder.getHeight();
 
-        score.setColor(1, 0, 0, 1);
+        score.setColor(0, 0, 0, 1);
         stage.getBatch().begin();
         score.draw(stage.getBatch(), " " + scoreWrong, x, y - score.getCapHeight()- 10 );
-        score.setColor(0, 1, 0, 1);
-        score.draw(stage.getBatch(), " " + scoreRight, x , y );
+//        score.setColor(0, 1, 0, 1);
+
+        scoreRightFont.draw(stage.getBatch(), " " + scoreRight, x , y );
         stage.getBatch().end();
+
     }
 
-//    }
-
-//    }
-
-//    private void keyPressed(float x) {
-//
-//
-//        key = (x - 3) / 34;
-////        System.out.println(key);
-////        System.out.println( actors.get(0).getNoteNumber());
-//
-//        if (actors.size != 0 ) {
-//            if (actors.get(0).getNoteNumber() == (int) key) {
-//                actors.get(0).setNoteCliked(true);
-//                rightButton = true;
-////            System.out.println(actors.get(0).getName());
-//                actors.removeIndex(0);
-//                scoreRight +=1;
-//            }else {
-//                actors.get(0).setNoteCliked(true);
-////                actors.get(0).setNoteCliked(true);
-//                actors.removeIndex(0);
-//                scoreWrong +=1;
-//            }
-//        }
-//    }
     public void controller() {
         time += 1;
         if (time >= 220f) {
@@ -354,7 +330,7 @@ public class ScripMiddleScreen extends AbstractGameScreen {
             }
         };
         Gdx.input.setInputProcessor(stage);
-
+        Assets.instance.music.menuMusic.stop();
 
         this.buildStage();
         actors = new Array();

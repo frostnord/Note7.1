@@ -1,5 +1,6 @@
 package com.insomnian.note.menu;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
@@ -12,6 +13,7 @@ import com.insomnian.note.game.Assets;
 import com.insomnian.note.screens.DirectedGame;
 import com.insomnian.note.screens.ScripPackScreen;
 import com.insomnian.note.screens.ScripPracticeScreen;
+import com.insomnian.note.utils.GamePreferences;
 
 public class WinWindow extends Window {
 
@@ -23,20 +25,20 @@ public class WinWindow extends Window {
 
     public WinWindow(String title, Skin skin, Stage stage, int score, final DirectedGame directedGame, final int number, int star) {
         super(title, skin);
+        Gdx.app.log("Winscreen", "Create ");
 
         this.stage = stage;
         this.score = score;
         this.directedGame = directedGame;
         this.number = number;
         this.star = star;
-
         Table table = new Table();
         //        table.debug();
         Table table2 = new Table();
-        table2.debug();
-
+//        table2.debug();
+        setBackground("pauseBg");
+//
         setSize(stage.getViewport().getWorldWidth() / 2, stage.getViewport().getWorldWidth() / 3);
-        System.out.println(stage.getViewport().getWorldWidth() / 2 +"+"+ stage.getViewport().getWorldWidth() / 3);
         setPosition(stage.getViewport().getWorldWidth() / 4, stage.getViewport().getWorldHeight() / 3);
 
         if (score <= 50) {
@@ -53,6 +55,10 @@ public class WinWindow extends Window {
             table.add(new Image(Assets.instance.decoration.star)).center().padBottom(50).size(150, 150);
             star = 3;
         }
+        int currentStar = GamePreferences.instance.getNumberOfStar(1, number);
+        if (currentStar < star) {
+            GamePreferences.instance.saveLastLevelStar(1, number, star);
+        }
 
         Button btnWindowPack = new Button(Assets.instance.skin.buttonStyle);
         Image imgWindowPrew = new Image(this.directedGame.gameSkin, "prew");
@@ -62,7 +68,6 @@ public class WinWindow extends Window {
         btnWindowPack.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeListener.ChangeEvent changeEvent, Actor actor) {
-
                 directedGame.setScreen( new ScripPackScreen(directedGame));
             }
         });
@@ -112,17 +117,17 @@ public class WinWindow extends Window {
 
         if (number!= 11) {
             Button btnWindowPlay = new Button(Assets.instance.skin.buttonStyle);
-            Image imgWindowNext = new Image(this.directedGame.gameSkin, "next");
+            Image imgWindowNext = new Image(this.directedGame.gameSkin, "play");
             imgWindowNext.setOrigin(imgWindowNext.getWidth() / 2.0f, imgWindowNext.getHeight() / 2.0f);
             btnWindowPlay.add((Actor) imgWindowNext);
             btnWindowPlay.setOrigin(btnWindowRestart.getWidth() / 2.0f, btnWindowRestart.getHeight() / 2.0f);
             btnWindowPlay.addListener(new ChangeListener() {
                 @Override
                 public void changed(ChangeEvent changeEvent, Actor actor) {
-//                    ScripPracticeScreen.this.directedGame.setScreen(new ScripPracticeScreen(directedGame, number + 1));
-                    remove();
+//                    directedGame.gameStatus = "action";
+                    directedGame.setScreen(new ScripPracticeScreen(directedGame, number + 1));
+//                    remove();
 //                status("action");
-                    directedGame.gameStatus = "action";
                 }
             });
             table2.add(btnWindowPlay).size(200, 200).padLeft(50);

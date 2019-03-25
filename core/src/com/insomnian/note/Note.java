@@ -16,7 +16,7 @@ public class Note extends DirectedGame {
 //    public OrthographicCamera camera;
     public String typeScreen;
 
-//    public AssetManager manager = new AssetManager();
+//    public AssetManager assetManager = new AssetManager();
 //    public Skin gameSkin;
 //    public Skin uiSkin;
 

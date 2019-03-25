@@ -13,17 +13,17 @@ import com.insomnian.note.enums.GameState;
  */
 public class DirectedGame extends Game {
 
-    public AssetManager manager = new AssetManager();
+    public AssetManager assetManager = new AssetManager();
     public Skin gameSkin;
     public Skin uiSkin;
     public String gameStatus = "action";
-    public GameState gs = GameState.MOVE ;
+    public GameState gameState = GameState.MOVE ;
     public OrthographicCamera camera;
 
     @Override
     public void create() {
 
-        this.camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+//        this.camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
 
     }
