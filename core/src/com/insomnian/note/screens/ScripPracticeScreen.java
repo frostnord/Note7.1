@@ -195,10 +195,10 @@ public class ScripPracticeScreen extends AbstractGameScreen {
                 showNote = true;
                 showNote();
              //////////////
-                WinWindow winWindow =  new WinWindow("", directedGame.uiSkin,stage,score,directedGame,number,star);
-                winWindow.setPosition(stage.getViewport().getWorldWidth() / 4, stage.getViewport().getWorldHeight() / 3);
-//
-                stage.addActor(winWindow);
+//                WinWindow winWindow =  new WinWindow("", directedGame.uiSkin,stage,score,directedGame,number,star);
+//                winWindow.setPosition(stage.getViewport().getWorldWidth() / 4, stage.getViewport().getWorldHeight() / 3);
+////
+//                stage.addActor(winWindow);
             //////////////
             }
         });

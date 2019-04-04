@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.insomnian.note.Note;
 import com.insomnian.note.game.Assets;
+import com.insomnian.note.game.WorldController;
 import com.insomnian.note.screens.DirectedGame;
 import com.insomnian.note.screens.ScripMiddleScreen;
 import com.insomnian.note.screens.ScripLeftScreen;
@@ -90,73 +91,77 @@ public class KeyGoriz extends AbstractActor {
 
 
         addListener(new ClickListener() {
-            //            @Override
+//                        @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+//                            if (((KeyGoriz)  event.getTarget()).
+//                            event.getTarget()
+
 //                if (((DoKey) event.getTarget()).state != 0) {
-                if(ScripMiddleScreen.getNoteActors().size != 0) {
+//                System.out.println(WorldController.getNoteActors().get(0).getNoteKey());
+                if(WorldController.getNoteActors().size != 0) {
                     Assets.play(number-3);
                     if (key == 1) {
-                    if (ScripMiddleScreen.getNoteActors().get(0).getNoteKey() == key) {
+                    if (WorldController.getNoteActors().get(0).getNoteKey() == key) {
                         keyTextureRegion = Assets.instance.noteImg.doGreenKeyImgActor;
                     } else {
                         keyTextureRegion = Assets.instance.noteImg.doRedKeyImgActor;
                     }
                 } else if (key == 2) {
-                    if (ScripMiddleScreen.getNoteActors().get(0).getNoteKey() == key) {
+                    if (WorldController.getNoteActors().get(0).getNoteKey() == key) {
                         keyTextureRegion = Assets.instance.noteImg.reGreenKeyImgActor;
                     } else {
                         keyTextureRegion = Assets.instance.noteImg.reRedKeyImgActor;
                     }
                 } else if (key == 3) {
-                    if (ScripMiddleScreen.getNoteActors().get(0).getNoteKey() == key) {
+                    if (WorldController.getNoteActors().get(0).getNoteKey() == key) {
                         keyTextureRegion = Assets.instance.noteImg.miGreenKeyImgActor;
                     } else {
                         keyTextureRegion = Assets.instance.noteImg.miRedKeyImgActor;
                     }
                 } else if (key == 4) {
-                    if (ScripMiddleScreen.getNoteActors().get(0).getNoteKey() == key) {
+                    if (WorldController.getNoteActors().get(0).getNoteKey() == key) {
                         keyTextureRegion = Assets.instance.noteImg.faGreenKeyImgActor;
                     } else {
                         keyTextureRegion = Assets.instance.noteImg.faRedKeyImgActor;
                     }
                 } else if (key == 5) {
-                    if (ScripMiddleScreen.getNoteActors().get(0).getNoteKey() == key) {
+                    if (WorldController.getNoteActors().get(0).getNoteKey() == key) {
                         keyTextureRegion = Assets.instance.noteImg.solGreenKeyImgActor;
                     } else {
                         keyTextureRegion = Assets.instance.noteImg.solRedKeyImgActor;
                     }
                 } else if (key == 6) {
-                    if (ScripMiddleScreen.getNoteActors().get(0).getNoteKey() == key) {
+                    if (WorldController.getNoteActors().get(0).getNoteKey() == key) {
                         keyTextureRegion = Assets.instance.noteImg.laGreenKeyImgActor;
                     } else {
                         keyTextureRegion = Assets.instance.noteImg.laRedKeyImgActor;
                     }
                 } else if (key == 7) {
-                    if (ScripMiddleScreen.getNoteActors().get(0).getNoteKey() == key) {
+                    if (WorldController.getNoteActors().get(0).getNoteKey() == key) {
                         keyTextureRegion = Assets.instance.noteImg.siGreenKeyImgActor;
                     } else {
                         keyTextureRegion = Assets.instance.noteImg.siRedKeyImgActor;
                     }
                 }
 
-                if (directedGame.getScreen().getClass() == ScripLeftScreen.class) {
-                    ScripLeftScreen.firstActor.setNoteCliked(true);
-                }
-                if (directedGame.getScreen().getClass() == ScripMiddleScreen.class) {
-                    if ((ScripMiddleScreen.getNoteActors().get(0).getNoteKey() == key)) {
-                        ScripMiddleScreen.scoreRight++;
+//                if (directedGame.getScreen().getClass() == ScripLeftScreen.class) {
+//                    ScripLeftScreen.firstActor.setNoteCliked();////////////////////
+//                }
+
+                    if ((WorldController.getNoteActors().get(0).getNoteKey() == key)) {
+                        WorldController.scoreRight++;
                     } else {
-                        ScripMiddleScreen.scoreWrong++;
+                        WorldController.scoreWrong++;
                     }
 //                    ScripMiddleScreen.setIndex(number);
-                    if (ScripMiddleScreen.getNoteActors().size != 0) {
-                        ScripMiddleScreen.getNoteActors().get(0).setNoteCliked(true);
-                        ScripMiddleScreen.getNoteActors().removeIndex(0);
+                    if (WorldController.getNoteActors().size != 0) {
+                        WorldController.getNoteActors().get(0).setNoteCliked(true);
+                        WorldController.getNoteActors().removeIndex(0);
 
                     }
                 }
 //                System.out.println("key "+(ScripMiddleScreen.getNoteActors().get(0).getNoteKey()));
-            }
+
 //                try {
 //                    NUMBER = directedGame.getScreen().getClass().getField("currIndex");
 //                    String n = NUMBER.getName();
@@ -203,6 +208,11 @@ public class KeyGoriz extends AbstractActor {
     }
     public boolean isTouched() {
         return Gdx.input.justTouched();
+    }
+
+
+    public boolean isRight(int pressedKey){
+        return true;
     }
 
 

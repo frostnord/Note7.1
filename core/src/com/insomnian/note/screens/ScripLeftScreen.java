@@ -7,8 +7,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.insomnian.note.Note;
-import com.insomnian.note.actors.KeyVert;
+import com.insomnian.note.actors.PianoKeyVert;
 import com.insomnian.note.actors.NoteVert;
 import com.insomnian.note.enums.GameState;
 import com.insomnian.note.game.Assets;
@@ -45,34 +44,30 @@ public class ScripLeftScreen extends AbstractGameScreen {
                 this.stage.getViewport().getWorldHeight() - znakImg.getHeight());
         stage.addActor(znakImg);
 
-        stage.addActor(new KeyVert(directedGame,3, stage, 0));
-        stage.addActor(new KeyVert(directedGame,4, stage, 1));
-        stage.addActor(new KeyVert(directedGame,5, stage, 2));
-        stage.addActor(new KeyVert(directedGame,6, stage, 3));
-        stage.addActor(new KeyVert(directedGame,7, stage, 4));
-        stage.addActor(new KeyVert(directedGame,1, stage, 5));
-        stage.addActor(new KeyVert(directedGame,2, stage, 6));
-        stage.addActor(new KeyVert(directedGame,3, stage, 7));
-        stage.addActor(new KeyVert(directedGame,4, stage, 8));
-        stage.addActor(new KeyVert(directedGame,5, stage, 9));
-        stage.addActor(new KeyVert(directedGame,6, stage, 10));
-        stage.addActor(new KeyVert(directedGame,7,stage,11));
-        stage.addActor(new KeyVert(directedGame,1,stage,12));
-        stage.addActor(new KeyVert(directedGame,2,stage,13));
-        stage.addActor(new KeyVert(directedGame,3,stage,14));
-        stage.addActor(new KeyVert(directedGame,4,stage,15));
-        stage.addActor(new KeyVert(directedGame,5,stage,16));
-        stage.addActor(new KeyVert(directedGame,6,stage,17));
-        stage.addActor(new KeyVert(directedGame,7,stage,18));
-        stage.addActor(new KeyVert(directedGame,1,stage,19));
-        stage.addActor(new KeyVert(directedGame,2,stage,20));
-        stage.addActor(new KeyVert(directedGame,3,stage,21));
-        stage.addActor(new KeyVert(directedGame,4,stage,22));
+        stage.addActor(new PianoKeyVert(directedGame,3, stage, 0));
+        stage.addActor(new PianoKeyVert(directedGame,4, stage, 1));
+        stage.addActor(new PianoKeyVert(directedGame,5, stage, 2));
+        stage.addActor(new PianoKeyVert(directedGame,6, stage, 3));
+        stage.addActor(new PianoKeyVert(directedGame,7, stage, 4));
+        stage.addActor(new PianoKeyVert(directedGame,1, stage, 5));
+        stage.addActor(new PianoKeyVert(directedGame,2, stage, 6));
+        stage.addActor(new PianoKeyVert(directedGame,3, stage, 7));
+        stage.addActor(new PianoKeyVert(directedGame,4, stage, 8));
+        stage.addActor(new PianoKeyVert(directedGame,5, stage, 9));
+        stage.addActor(new PianoKeyVert(directedGame,6, stage, 10));
+        stage.addActor(new PianoKeyVert(directedGame,7,stage,11));
+        stage.addActor(new PianoKeyVert(directedGame,1,stage,12));
+        stage.addActor(new PianoKeyVert(directedGame,2,stage,13));
+        stage.addActor(new PianoKeyVert(directedGame,3,stage,14));
+        stage.addActor(new PianoKeyVert(directedGame,4,stage,15));
+        stage.addActor(new PianoKeyVert(directedGame,5,stage,16));
+        stage.addActor(new PianoKeyVert(directedGame,6,stage,17));
+        stage.addActor(new PianoKeyVert(directedGame,7,stage,18));
+        stage.addActor(new PianoKeyVert(directedGame,1,stage,19));
+        stage.addActor(new PianoKeyVert(directedGame,2,stage,20));
+        stage.addActor(new PianoKeyVert(directedGame,3,stage,21));
+        stage.addActor(new PianoKeyVert(directedGame,4,stage,22));
 
-
-//            stage.addActor( a = new DoKey(directedGame,stage,2));
-//            a = new DoKey(directedGame,stage,3);
-//            a.setTouchable(Touchable.enabled);
     }
 
     private void Back() {
@@ -106,13 +101,16 @@ public class ScripLeftScreen extends AbstractGameScreen {
                 currIndex = nextIndex;
             }
         }
-        if (firstActor.getNoteCliked(true)){
+        if( WorldController.firstActorClicked){
+//        if (firstActor.isNoteCliked()){
             firstActor.speedUp();
         }
         if (firstActor.getPosition().y <= this.stage.getViewport().getWorldHeight()/3.2 - 7) {
 
             GameManager.ourInstance.setGameState(GameState.WAITKEYPRESS);
-            if (firstActor.getNoteCliked(true)) {
+            if(WorldController.firstActorClicked){
+//            if (firstActor.isNoteCliked()) {
+                WorldController.firstActorClicked =false;
                 currIndex = nextIndex;
                 WorldController.KEYNUMBER = currIndex;
                 firstActor.remove();
@@ -173,7 +171,8 @@ public class ScripLeftScreen extends AbstractGameScreen {
 
     @Override
     public void hide() {
-//        this.stage.dispose();
+        WorldController.worldReset();
+        stage.dispose();
     }
 
     @Override

@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.insomnian.note.actors.BlackNote;
 import com.insomnian.note.enums.GameState;
 
+import static com.insomnian.note.screens.BassLeftScreen.firstActor;
+
 /**
  * Created by 1 on 13.04.2015.
  */
@@ -19,6 +21,7 @@ public class DirectedGame extends Game {
     public String gameStatus = "action";
     public GameState gameState = GameState.MOVE ;
     public OrthographicCamera camera;
+
 
     @Override
     public void create() {

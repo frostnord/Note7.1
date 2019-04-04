@@ -10,8 +10,10 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.insomnian.note.enums.GameMode;
 import com.insomnian.note.enums.GameState;
 import com.insomnian.note.game.Assets;
+import com.insomnian.note.game.WorldController;
 import com.insomnian.note.screens.DirectedGame;
 import com.insomnian.note.utils.Constants;
 import com.insomnian.note.utils.GameManager;
@@ -49,7 +51,6 @@ public class NoteVert extends Actor {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
-
 
         lineImg= Assets.instance.decoration.lineImg;
         if (note.equals("Do")){
@@ -146,7 +147,7 @@ public class NoteVert extends Actor {
         this.game = directedGame;
         this.stage = stage;
         randomNote();
-        this.move= true;
+        this.move = true;
         width = stage.getViewport().getWorldWidth() / 12;
         height = stage.getViewport().getWorldWidth()/ 10;
         setOrigin(getWidth() /2,getHeight() /2 );
@@ -167,10 +168,10 @@ public class NoteVert extends Actor {
     }
 
 
-    public void setNoteCliked(boolean isSecond){
-        this.isSecond = isSecond;
+    public void setNoteCliked(){
+        this.isSecond = true;
     }
-    public boolean getNoteCliked(boolean isSecond){
+    public boolean isNoteCliked(){
         return this.isSecond ;
     }
     public float getIndex(){
@@ -185,37 +186,67 @@ public class NoteVert extends Actor {
     public Vector2 getPosition() {
         return position;
     }
+
     private float randomNote(){
         Random rand = new Random();
         index = rand.nextInt(22);
 
         if (( index==0)||(index==7)||(index==21)||(index==14)) {
-            note = "Mi";
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "Sol";
+            } else {
+                note = "Mi";
+            }
+        }
 //            System.out.println("mi");
-        }
+
         if (( index==1)||(index==8)||(index==22)||(index==15)) {
-            note = "Fa";
-//            System.out.println("fa");
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "La";
+            } else {
+                note = "Fa";
+            }
         }
+//            System.out.println("fa");
+
         if (( index==2)||(index==9)||(index==16)) {
-            note="Sol";
+            if(WorldController.getGameMode() == GameMode.BASS){
+                note = "Si";
+            }else {
+                note = "Sol";
 //            System.out.println("sol");
+            }
         }
         if (( index==3)||(index==10)||(index==17)) {
-            note ="La";
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "Do";
+            } else {
+                note = "La";
 //            System.out.println("la");
+            }
         }
         if (( index==4)||(index==11)||(index==18)) {
-            note="Si";
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "Re";
+            } else {
+                note = "Si";
 //            System.out.println("si");
+            }
         }
         if (( index==5)||(index==12)||(index==19)) {
-            note="Do";
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "Mi";
+            } else {
+                note = "Do";
 //            System.out.println("do");
+            }
         }
         if (( index==6)||(index==13)||(index==20)) {
-            note="Re";
-//            System.out.println("re");
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "Fa";
+            } else {
+                note = "Re";
+            }
         }
 
 

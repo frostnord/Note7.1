@@ -16,8 +16,8 @@ public class SoundManager { //not used
     public static void soundPlay(int note){
         if (GamePreferences.instance.isSoundEnabled()){
 //            if (WorldController.GAMEMODE.equals("scrip")){
-                String gameMoode = WorldController.GAMEMODE;
-                String noteName = "sound/"+gameMoode+"/"+note+".wav";
+//                String gameMoode = WorldController.GAMEMODE;
+//                String noteName = "sound/"+gameMoode+"/"+note+".wav";
 //                Assets.instance.assetManager.get("sound/"+gameMoode+"/"+note);
 //                Assets.getSound(noteName).play();
 //            Assets.getSound()

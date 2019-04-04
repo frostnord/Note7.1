@@ -8,8 +8,10 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Align;
+import com.insomnian.note.enums.GameMode;
 import com.insomnian.note.enums.GameState;
 import com.insomnian.note.game.Assets;
+import com.insomnian.note.game.WorldController;
 import com.insomnian.note.screens.DirectedGame;
 import com.insomnian.note.utils.GameManager;
 
@@ -219,46 +221,87 @@ public class NoteGoriz extends Actor {
         index = rand.nextInt(22);
 
         if (( index==0)||(index==7)||(index==21)||(index==14)) {
-            note = "Mi";
-            System.out.println("Mi");
-            noteNumber = 2;
-            noteKey =  3;
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "Sol";
+                noteKey =  5;
+            } else {
+                note = "Mi";
+                noteKey =  3;
+            }
+//            System.out.println("Mi");
+//            noteNumber = 2;
         }
         if (( index==1)||(index==8)||(index==22)||(index==15)) {
-            note = "Fa";
-            System.out.println("Fa");
-            noteNumber = 3;
-            noteKey = 4;
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "La";
+                noteKey = 6;
+            } else {
+                note = "Fa";
+                noteKey = 4;
+            }
+//            System.out.println("Fa");
+//            noteNumber = 3;
+
         }
         if (( index==2)||(index==9)||(index==16)) {
-            note="Sol";
-            System.out.println("Sol");
-            noteNumber = 4;
-            noteKey = 5;
+            if(WorldController.getGameMode() == GameMode.BASS){
+                note = "Si";
+                noteKey = 7;
+            }else {
+                note = "Sol";
+                noteKey = 5;
+            }
+//            System.out.println("Sol");
+//            noteNumber = 4;
+
         }
         if (( index==3)||(index==10)||(index==17)) {
-            note ="La";
-            System.out.println("La");
-            noteNumber = 5;
-            noteKey = 6;
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "Do";
+                noteKey = 1;
+            } else {
+                note = "La";
+                noteKey = 6;
+            }
+//            System.out.println("La");
+//            noteNumber = 5;
+
         }
         if (( index==4)||(index==11)||(index==18)) {
-            note="Si";
-            System.out.println("Si");
-            noteNumber = 6;
-            noteKey = 7;
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "Re";
+                noteKey = 2;
+            } else {
+                note = "Si";
+                noteKey = 7;
+//            System.out.println("si");
+            }
+//            System.out.println("Si");
+//            noteNumber = 6;
+
         }
         if (( index==5)||(index==12)||(index==19)) {
-            note="Do";
-            System.out.println("Do");
-            noteNumber = 0;
-            noteKey = 1;
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "Mi";
+                noteKey = 3;
+            } else {
+                note = "Do";
+                noteKey = 1;
+            }
+//            System.out.println("Do");
+//            noteNumber = 0;
         }
         if (( index==6)||(index==13)||(index==20)) {
-            note="Re";
-            System.out.println("Re");
-            noteNumber = 1;
-            noteKey = 2;
+            if (WorldController.getGameMode() == GameMode.BASS) {
+                note = "Fa";
+                noteKey = 4;
+            } else {
+                note = "Re";
+                noteKey = 2;
+            }
+//            System.out.println("Re");
+//            noteNumber = 1;
+
         }
         return index;
     }
@@ -266,12 +309,11 @@ public class NoteGoriz extends Actor {
     public void act(float delta) {
 
         stateTime += Gdx.graphics.getDeltaTime();
-
         super.act(delta);
 //        if  (GameManager.ourInstance.getGameState()== GameState.MOVE) {
             position.x -= 130 * delta;
 //        }
-        if (position.x <= 25){
+        if (position.x <= 200){
             remove();
         }
     }

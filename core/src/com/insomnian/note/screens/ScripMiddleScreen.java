@@ -3,28 +3,19 @@ package com.insomnian.note.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.*;
-import com.badlogic.gdx.math.Interpolation;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.insomnian.note.Note;
 import com.insomnian.note.actors.KeyGoriz;
-import com.insomnian.note.actors.KeyVert;
 import com.insomnian.note.actors.Lines;
 import com.insomnian.note.actors.NoteGoriz;
 import com.insomnian.note.game.Assets;
+import com.insomnian.note.game.WorldController;
 import com.insomnian.note.utils.Constants;
-import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.insomnian.note.utils.GamePreferences;
 
 public class ScripMiddleScreen extends AbstractGameScreen {
@@ -194,9 +185,9 @@ public class ScripMiddleScreen extends AbstractGameScreen {
         this.stage.getViewport().update(n, n2, true);
     }
 
-    public static Array<NoteGoriz> getNoteActors(){
-        return actors;
-    }
+//    public static Array<NoteGoriz> getNoteActors(){
+//        return actors;
+//    }
 
     @Override
     public void pause() {
@@ -280,10 +271,10 @@ public class ScripMiddleScreen extends AbstractGameScreen {
 
         score.setColor(0, 0, 0, 1);
         stage.getBatch().begin();
-        score.draw(stage.getBatch(), " " + scoreWrong, x, y - score.getCapHeight()- 10 );
+        score.draw(stage.getBatch(), " " + WorldController.scoreWrong, x, y - score.getCapHeight()- 10 );
 //        score.setColor(0, 1, 0, 1);
 
-        scoreRightFont.draw(stage.getBatch(), " " + scoreRight, x , y );
+        scoreRightFont.draw(stage.getBatch(), " " + WorldController.scoreRight, x , y );
         stage.getBatch().end();
 
     }
@@ -292,24 +283,17 @@ public class ScripMiddleScreen extends AbstractGameScreen {
         time += 1;
         if (time >= 220f) {
             NoteGoriz noteGoriz = new NoteGoriz(directedGame,stage,stage.getViewport().getWorldHeight(),
-                    stage.getViewport().getWorldHeight()-this.stage.getViewport().getWorldHeight() / 4f);
-
-            actors.add(noteGoriz);
+                    stage.getViewport().getWorldHeight()- this.stage.getViewport().getWorldHeight() / 4f);
+            WorldController.actors.add(noteGoriz);
             stage.addActor(noteGoriz);
             time = 0f;
-//            index = noteGoriz.getIndex();
-//            System.out.println(actors.get(0).getNoteKey());/
-//            if (actors.size >=4 ){
-//                System.out.println(actors.get(0).getNoteKey() + " " +  actors.get(1).getNoteKey()+ " " +  actors.get(2).getNoteKey()+ " " +  actors.get(3).getNoteKey());
-//            }
         }
-
-        if (actors.size != 0 ) {
-            if (actors.get(0).getPosition().x <= 250) {
-                if (!actors.get(0).getNoteClicked()) {
-                    actors.get(0).setNoteCliked(true);
-                    actors.removeIndex(0);
-                    scoreWrong += 1;
+        if (WorldController.actors.size != 0 ) {
+            if (WorldController.actors.get(0).getPosition().x <= 250) {
+                if (!WorldController.actors.get(0).getNoteClicked()) {
+                    WorldController.actors.get(0).setNoteCliked(true);
+                    WorldController.actors.removeIndex(0);
+                    WorldController.scoreWrong += 1;
                 }
             }
         }

@@ -40,7 +40,7 @@ import com.insomnian.note.utils.GameManager;
 
         public BassMenuScreen(DirectedGame directedGame) {
             super(directedGame);
-            WorldController.GAMEMODE = "bass";
+            WorldController.setGameModeBass();
 
 //        this.Height = Gdx.graphics.getHeight();
 ////        System.out.println( Height);
@@ -56,9 +56,7 @@ import com.insomnian.note.utils.GameManager;
 //        float f2 = treningMenuImg.getHeight() * f1 / treningMenuImg.getWidth();
 //        this.treningMenuImg.setPosition(this.Width - this.Width / 30 - f1, this.Width / 30);
 //        this.treningMenuImg.setSize(f1, f2);
-//
-//        this.stage.addActor(this.imgBackground);
-//        this.stage.addActor(this.treningMenuImg);
+
         }
         private void assembleStage() {
             this.stage.clear();
@@ -132,7 +130,8 @@ import com.insomnian.note.utils.GameManager;
 
                 @Override
                 public void changed(ChangeEvent changeEvent, Actor actor) {
-                    onLearningClicked();
+//                    onLearningClicked();
+                    BassMenuScreen.this.directedGame.setScreen(new BassMiddleScreen(directedGame));
                 }
             });
 
@@ -142,7 +141,8 @@ import com.insomnian.note.utils.GameManager;
 
                 @Override
                 public void changed(ChangeEvent changeEvent, Actor actor) {
-                    onPracticeClicked();
+                    BassMenuScreen.this.directedGame.setScreen(new BassPackScreen(directedGame));
+//                    onPracticeClicked();
                 }
             });
 //        System.out.println(this.directedGame.gameSkin.getRegion("LearningScrip_mid").getRegionHeight() /2.5f);

@@ -238,7 +238,7 @@ public class Assets implements AssetErrorListener, Disposable {
     }
     public static void play( int note){
         if (GamePreferences.instance.isSoundEnabled()) {
-            String gameMoode = WorldController.GAMEMODE;
+            String gameMoode = WorldController.getMusicPath();
             String noteName = "sound/"+gameMoode+"/"+note+".ogg";
             assetManager.get(noteName,Sound.class).play();
 //            System.out.println(noteName);

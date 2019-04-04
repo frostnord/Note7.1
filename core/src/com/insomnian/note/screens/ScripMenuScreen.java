@@ -44,7 +44,7 @@ public class ScripMenuScreen extends AbstractGameScreen  {
 
     public ScripMenuScreen(DirectedGame directedGame) {
         super(directedGame);
-        WorldController.GAMEMODE = "scrip";
+        WorldController.setGameModeScrip();
 
 //        this.Height = Gdx.graphics.getHeight();
 ////        System.out.println( Height);

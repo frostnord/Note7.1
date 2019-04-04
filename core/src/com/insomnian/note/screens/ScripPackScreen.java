@@ -54,7 +54,7 @@ public class ScripPackScreen extends AbstractGameScreen {
 //        this.Width = Gdx.graphics.getWidth();
     }
 
-    private void rebuildStage() {
+    private void buildStage() {
 //        this.buildMenuLayers();
 //        this.assembleStage();////////////////
 
@@ -310,7 +310,7 @@ public class ScripPackScreen extends AbstractGameScreen {
 //        GameManager.ourInstance.setGameState(GameState.MOVE);/////////////////////////
 
 //        this.atlas = (TextureAtlas)this.directedGame.assetManager.get("sprites.atlas", TextureAtlas.class);
-        this.rebuildStage();
+        this.buildStage();
     }
 
     private void Back() {
